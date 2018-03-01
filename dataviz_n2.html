@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+    
+    // on charge le SVG
+    $.get('dataviz/dataviz_n2.svg', function(data) { 
+        $(document.body).append(data.documentElement);
+        init(); // on lance la fonction init() présente en dessous;
+    });
+
+    
+  function init() {
+      // on définit les interactions.
+      // les élements sont identifiable par le nom du calque Illustrator
+      $('#jeuneHover').hide();
+      $('#milieuHover').hide();
+      $('#vieuxHover').hide();
+      
+    $('#jeuneBtn').hover(             // au clic sur Btn1
+        function() {
+            $('#jeuneHover').show();
+            //
+            $('#valeursMilieu').hide();
+            $('#valeursVieux').hide();
+        },
+        function(){
+            $('#jeuneHover').hide();
+            $('#milieuHover').hide();
+            $('#vieuxHover').hide();
+            //
+            $('#valeursJeune').show();
+            $('#valeursMilieu').show();
+            $('#valeursVieux').show();
+        }
+    );
+      
+    $('#milieuBtn').hover(             // au clic sur Btn1
+        function() {
+            $('#milieuHover').show();
+            //
+            $('#valeursJeune').hide();
+            $('#valeursVieux').hide();
+        },
+        function(){
+            $('#jeuneHover').hide();
+            $('#milieuHover').hide();
+            $('#vieuxHover').hide();
+            //
+            $('#valeursJeune').show();
+            $('#valeursMilieu').show();
+            $('#valeursVieux').show();
+        }
+    );
+      
+      $('#vieuxBtn').hover(             // au clic sur Btn1
+        function() {
+            $('#vieuxHover').show();
+            //
+            $('#valeursJeune').hide();
+            $('#valeursMilieu').hide();
+        },
+        function(){
+            $('#jeuneHover').hide();
+            $('#milieuHover').hide();
+            $('#vieuxHover').hide();
+            //
+            $('#valeursJeune').show();
+            $('#valeursMilieu').show();
+            $('#valeursVieux').show();
+        }
+    );
+    
+    /*
+    $('#Btn3').click(             // au clic sur Btn3
+       function() {
+           window.open('http://www.google.com','_blank'); // ouvrir l'url dans une nouvelle fenetre (remplacez _blank par _self pour ouvrir l'url dans la même page)
+       }
+    );
+    */
+      
+  }
+    function reset() {
+        $('#valeursJeune').show();
+        $('#valeursMilieu').show();
+        $('#valeursVieux').show();
+    }   
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+        
+        html, body{
+            width:100%;
+            height:100%;
+        }
+        svg{
+            height: 100%;
+            width:100%;
+            min-height: 500px;
+           /* object-fit: contain;*/
+        }
+        
+        tspan, text{
+            font-family: 'Montserrat', sans-serif !important;
+        }
+        
+    </style>
+    
+</html>

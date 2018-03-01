@@ -8,7 +8,7 @@
     
     // on charge le SVG
     $.get('dataviz_n2.svg', function(data) { 
-        $(document.body).append(data.documentElement);
+        $("#dataviz").append(data.documentElement);
         init(); // on lance la fonction init() présente en dessous;
     });
 
@@ -108,7 +108,17 @@
             font-family: 'Montserrat', sans-serif !important;
         }
         
+        .legende{
+            font-family:sans-serif;
+            font-size:10pt;
+            text-align:center;
+        }
+        
     </style>
-            </head>
+    </head>
+    <body>
+        <div id="dataviz"></div>
+        <p class="legende">D'après des données issues de <a href="https://hadopi.fr/sites/default/files/ckeditor_files/ESSENTIEL-N7.pdf">l'Essentiel no 7</a> publié par Hadopi.</p>
+    </body>
     
 </html>

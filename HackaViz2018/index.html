@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>HackaViz 2018 - Occitanie</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    
+    // on charge le SVG
+    $.get('OccitanieMap.svg', function(data) { 
+        $("#dataviz").append(data.documentElement);
+        init(); // on lance la fonction init() présente en dessous;
+    });
+    
+  function init() {
+      // on définit les interactions.
+      // les élements sont identifiable par le nom du calque Illustrator
+      
+      reset();
+      
+    $('#LotPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#LotPop').show();
+           $('#LotPopBtnHover').show();
+       }
+    );
+    $('#LotEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#LotEco').show();
+           $('#LotEcoBtnHover').show();
+       }
+    );
+    $('#LotTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#LotTop').show();
+           $('#LotTopBtnHover').show();
+       }
+    );
+      
+    $('#AvePopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#AvePop').show();
+           $('#AvePopBtnHover').show();
+       }
+    );
+    $('#AveEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#AveEco').show();
+           $('#AveEcoBtnHover').show();
+       }
+    );
+    $('#AveTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#AveTop').show();
+           $('#AveTopBtnHover').show();
+       }
+    );
+    
+    $('#LozPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#LozPop').show();
+           $('#LozPopBtnHover').show();
+       }
+    );
+    $('#LozEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#LozEco').show();
+           $('#LozEcoBtnHover').show();
+       }
+    );
+    $('#LozTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#LozTop').show();
+           $('#LozTopBtnHover').show();
+       }
+    );
+      
+    $('#GarPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#GarPop').show();
+           $('#GarPopBtnHover').show();
+       }
+    );
+    $('#GarEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#GarEco').show();
+           $('#GarEcoBtnHover').show();
+       }
+    );
+    $('#GarTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#GarTop').show();
+           $('#GarTopBtnHover').show();
+       }
+    );
+      
+    $('#HerPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#HerPop').show();
+           $('#HerPopBtnHover').show();
+       }
+    );
+    $('#HerEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#HerEco').show();
+           $('#HerEcoBtnHover').show();
+       }
+    );
+    $('#HerTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#HerTop').show();
+           $('#HerTopBtnHover').show();
+       }
+    );
+      
+    $('#AudPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#AudPop').show();
+           $('#AudPopBtnHover').show();
+       }
+    );
+    $('#AudEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#AudEco').show();
+           $('#AudEcoBtnHover').show();
+       }
+    );
+    $('#AudTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#AudTop').show();
+           $('#AudTopBtnHover').show();
+       }
+    );
+      
+    $('#PorPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#PorPop').show();
+           $('#PorPopBtnHover').show();
+       }
+    );
+    $('#PorEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#PorEco').show();
+           $('#PorEcoBtnHover').show();
+       }
+    );
+    $('#PorTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#PorTop').show();
+           $('#PorTopBtnHover').show();
+       }
+    );
+      
+    $('#AriPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#AriPop').show();
+           $('#AriPopBtnHover').show();
+       }
+    );
+    $('#AriEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#AriEco').show();
+           $('#AriEcoBtnHover').show();
+       }
+    );
+    $('#AriTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#AriTop').show();
+           $('#AriTopBtnHover').show();
+       }
+    );
+      
+    $('#HpyPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#HpyPop').show();
+           $('#HpyPopBtnHover').show();
+       }
+    );
+    $('#HpyEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#HpyEco').show();
+           $('#HpyEcoBtnHover').show();
+       }
+    );
+    $('#HpyTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#HpyTop').show();
+           $('#HpyTopBtnHover').show();
+       }
+    ); 
+      
+    $('#GerPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#GerPop').show();
+           $('#GerPopBtnHover').show();
+       }
+    );
+    $('#GerEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#GerEco').show();
+           $('#GerEcoBtnHover').show();
+       }
+    );
+    $('#GerTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#GerTop').show();
+           $('#GerTopBtnHover').show();
+       }
+    ); 
+      
+    $('#TegPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#TegPop').show();
+           $('#TegPopBtnHover').show();
+       }
+    );
+    $('#TegEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#TegEco').show();
+           $('#TegEcoBtnHover').show();
+       }
+    );
+    $('#TegTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#TegTop').show();
+           $('#TegTopBtnHover').show();
+       }
+    ); 
+      
+    $('#TarPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#TarPop').show();
+           $('#TarPopBtnHover').show();
+       }
+    );
+    $('#TarEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#TarEco').show();
+           $('#TarEcoBtnHover').show();
+       }
+    );
+    $('#TarTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#TarTop').show();
+           $('#TarTopBtnHover').show();
+       }
+    ); 
+      
+    $('#HgaPopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#HgaPop').show();
+           $('#HgaPopBtnHover').show();
+       }
+    );
+    $('#HgaEcoBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#HgaEco').show();
+           $('#HgaEcoBtnHover').show();
+       }
+    );
+    $('#HgaTopBtn').click(             // au clic sur Btn3
+       function() {
+           reset();
+           $('#HgaTop').show();
+           $('#HgaTopBtnHover').show();
+       }
+    );  
+  }
+    function reset() {
+        $('#LotPopBtnHover').hide();
+        $('#LotEcoBtnHover').hide();
+        $('#LotTopBtnHover').hide();
+        $('#LotPop').hide();
+        $('#LotEco').hide();
+        $('#LotTop').hide();
+        
+        $('#AvePopBtnHover').hide();
+        $('#AveEcoBtnHover').hide();
+        $('#AveTopBtnHover').hide();
+        $('#AvePop').hide();
+        $('#AveEco').hide();
+        $('#AveTop').hide();
+        
+        $('#LozPopBtnHover').hide();
+        $('#LozEcoBtnHover').hide();
+        $('#LozTopBtnHover').hide();
+        $('#LozPop').hide();
+        $('#LozEco').hide();
+        $('#LozTop').hide();
+        
+        $('#GarPopBtnHover').hide();
+        $('#GarEcoBtnHover').hide();
+        $('#GarTopBtnHover').hide();
+        $('#GarPop').hide();
+        $('#GarEco').hide();
+        $('#GarTop').hide();
+        
+        $('#HerPopBtnHover').hide();
+        $('#HerEcoBtnHover').hide();
+        $('#HerTopBtnHover').hide();
+        $('#HerPop').hide();
+        $('#HerEco').hide();
+        $('#HerTop').hide();
+        
+        $('#AudPopBtnHover').hide();
+        $('#AudEcoBtnHover').hide();
+        $('#AudTopBtnHover').hide();
+        $('#AudPop').hide();
+        $('#AudEco').hide();
+        $('#AudTop').hide();
+        
+        $('#PorPopBtnHover').hide();
+        $('#PorEcoBtnHover').hide();
+        $('#PorTopBtnHover').hide();
+        $('#PorPop').hide();
+        $('#PorEco').hide();
+        $('#PorTop').hide();
+        
+        $('#AriPopBtnHover').hide();
+        $('#AriEcoBtnHover').hide();
+        $('#AriTopBtnHover').hide();
+        $('#AriPop').hide();
+        $('#AriEco').hide();
+        $('#AriTop').hide();
+        
+        $('#HpyPopBtnHover').hide();
+        $('#HpyEcoBtnHover').hide();
+        $('#HpyTopBtnHover').hide();
+        $('#HpyPop').hide();
+        $('#HpyEco').hide();
+        $('#HpyTop').hide();
+        
+        $('#GerPopBtnHover').hide();
+        $('#GerEcoBtnHover').hide();
+        $('#GerTopBtnHover').hide();
+        $('#GerPop').hide();
+        $('#GerEco').hide();
+        $('#GerTop').hide();
+        
+        $('#TegPopBtnHover').hide();
+        $('#TegEcoBtnHover').hide();
+        $('#TegTopBtnHover').hide();
+        $('#TegPop').hide();
+        $('#TegEco').hide();
+        $('#TegTop').hide();
+        
+        $('#TarPopBtnHover').hide();
+        $('#TarEcoBtnHover').hide();
+        $('#TarTopBtnHover').hide();
+        $('#TarPop').hide();
+        $('#TarEco').hide();
+        $('#TarTop').hide();
+        
+        $('#HgaPopBtnHover').hide();
+        $('#HgaEcoBtnHover').hide();
+        $('#HgaTopBtnHover').hide();
+        $('#HgaPop').hide();
+        $('#HgaEco').hide();
+        $('#HgaTop').hide();
+    }   
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+        
+        html, body{
+            width:100%;
+            height:100%;
+        }
+        #dataviz{
+            height:95%;
+            width:100%;
+        }
+        svg{
+            height:95%;
+            width:100%;
+        }
+                
+        tspan, text{
+            /*cursor:default;*/
+            font-family: 'Open Sans', sans-serif !important;
+        }
+        
+        .legende{
+            font-family:sans-serif;
+            font-size:10pt;
+            text-align:center;
+        }
+                
+        #LotPopBtn,#LotEcoBtn,#LotTopBtn,
+        #AvePopBtn,#AveEcoBtn,#AveTopBtn,
+        #LozPopBtn,#LozEcoBtn,#LozTopBtn,
+        #GarPopBtn,#GarEcoBtn,#GarTopBtn,
+        #HerPopBtn,#HerEcoBtn,#HerTopBtn,
+        #AudPopBtn,#AudEcoBtn,#AudTopBtn,
+        #PorPopBtn,#PorEcoBtn,#PorTopBtn,
+        #AriPopBtn,#AriEcoBtn,#AriTopBtn,
+        #HpyPopBtn,#HpyEcoBtn,#HpyTopBtn,
+        #GerPopBtn,#GerEcoBtn,#GerTopBtn,
+        #TegPopBtn,#TegEcoBtn,#TegTopBtn,
+        #TarPopBtn,#TarEcoBtn,#TarTopBtn,
+        #HgaPopBtn,#HgaEcoBtn,#HgaTopBtn{
+            cursor: pointer;
+        }
+        #LotPopBtn:hover{
+           cursor: pointer;  
+        }
+        
+    </style>
+        
+            </head>
+    <body>
+        <div id="dataviz"></div>
+        <p class="legende">03/2018 - DataViz réalisée par Frédéric, Matthieu, Théo et Clément (<a href="http://www.infonumbordeaux.fr/mind/">LP MIND</a>) - D'après les données fournies par <a href="http://toulouse-dataviz.fr">Toulouse Dataviz</a> pour <a href="http://toulouse-dataviz.fr/?page_id=11">HACKAVIZ 2018</a></p>
+        <p class="legende"></p>
+    </body>
+    
+    
+</html>

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Space+Mono|Spectral');
+
+body{
+    font-family: "Spectral", serif;
+}
+.content{
+    max-width: 900px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+img{
+    border:1px solid black;
+    padding:2px;
+}
+#logo {
+    width:126px; 
+    height:46px;
+    vertical-align:middle;
+    border:none;
+}
+.center {
+    text-align:center;
+}
+.classe {
+    font-weight: bold; 
+    font-family: "Montserrat",sans-serif; 
+    /*font-size: 110%;*/
+    color:#336699;
+}
+.propriete {
+    font-style: italic; 
+    font-family: "Montserrat", sans-serif; 
+    /*font-size: 110%;*/
+    color:coral;
+}
+.interface {
+    font-weight: bold; 
+    font-family: "Montserrat", sans-serif;
+}
+.protege {
+    font-family:"Montserrat", sans-serif; 
+    font-style:italic;
+}
+
+/*truc de numérotation adapté de http://www.w3.org/TR/CSS2/generate.html#list-style */
+body {
+    counter-reset: section;
+}
+h2:before {
+    content: counter(section) " - ";
+    counter-increment: section;  
+}
+
+h2{
+    counter-reset: subsection;
+    font-weight:bold; 
+    font-size:150%;
+    margin-top:50px;
+}
+.h3:before {
+    content: counter(section) "." counter(subsection) " ";
+    counter-increment: subsection;
+}
+.h3 {
+    font-weight:bold; 
+    font-size:125%; 
+    line-height:200%;
+    margin-top: 30px;
+}
+
+.stepStart {
+    counter-reset:stepNo;
+    display:block;
+    list-style-type: decimal;
+}
+.step {
+    display:list-item;
+    padding:5px;
+}
+@media (max-width:780px){
+     img {
+         width:500px;
+    }
+ } 

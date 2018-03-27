@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0077)http://www.iro.umontreal.ca/~lapalme/ift6282/OWL/EtapesCreationOntologie.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="keywords" content="Protégé, tutorial, tutoriel, ontologie">
+    <title>OWL - Création d'une petite ontologie avec Protégé</title>
+    <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+    <div class="content">
+    
+
+    
+<h1>
+    Création d'une petite ontologie avec <a href="http://protege.stanford.edu/"><img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/logoProtege.png" width="88" height="32" alt="Protégé" id="logo"></a>
+</h1>
+<div class="into">
+    Ce tutoriel adapté de celui proposé par <a href="http://www.iro.umontreal.ca/~lapalme">Guy Lapalme</a>.
+    L'ontologie est tirée de l'exemple 3.1 (p 17) d'un texte de Grigoris Antoniou and Frank van Harmelen. Elle était aussi présentée dans la deuxième édition Semantic Web Primer (p 135 et suivantes).
+    
+</div>
+
+<p>Le Site de <span class="protege">Protégé</span> explique <a href="http://protegeproject.github.io/protege/getting-started/" title="Getting Started">comment explorer une ontologie existante</a>, mais ici vous allez créer une nouvelle ontologie. </p>
+    
+<p>
+    Il s'agit dans ce tutoriel de modéliser une petite ontologie. Cette ontologie a pour but de décrire de façon très simplifié et shématique l'écosystème de la savane. Comme présenté dans le cours, une ontologie est le fruits d'une (longue) réflexion entre spécialistes du domaine à décrire et spécialistes de la modélisation d'ontologies. Ainsi, le choix des classes et des propriétés (bref de tout se qui compose notre ontologie) devraient en principe être faits suite à une analyse complète des besoins.<br/>
+    Pour les besoin de l'exercice, ces choix ont déjà été fait ; nous les imposons. Vous n'avez plus qu'a vous concentré sur la modélisation grâce au logiciel Protégé.
+</p>
+
+    <h2>Informations à exprimer dans l'ontologie</h2>
+
+        <p>Pour simplifier, nous indiquons une classe comme <span class="classe">Ceci</span> avec sa première lettre en majuscule ;<br/>
+        les propriétés, elles, apparaîtront <span class="propriete">commeCa</span> avec la première lettre en minuscule puis en « bossesDeChameau » (majuscule à chaque nouveau mot).
+        </p>
+
+<ul id="enonces">
+    <li id="I">Un <span class="classe">Animal</span> est une classe.
+    </li>
+    <li id="II">Une <span class="classe">Plante</span> est une classe, mais disjointe d'<span class="classe">Animal</span>.
+    </li>
+    <li id="III">Un <span class="classe">Arbre</span> est une sous-classe de <span class="classe">Plante</span>.
+    </li>
+    <li id="IV">Une <span class="classe">Branche</span> est une <span class="propriete">partie d'</span>un <span class="classe">Arbre</span>.
+    </li>
+    <li id="V">Une <span class="classe">Feuille</span> est une <span class="propriete">partie d'</span>une <span class="classe">Branche</span>
+    </li>
+    <li id="VI">Un <span class="classe">Herbivore</span> est un <span class="classe">Animal</span> qui ne <span class="propriete">mange</span> qu'une <span class="classe">Plante</span> ou une partie d'une <span class="classe">Plante</span>.
+    </li>
+    <li id="VII">Un <span class="classe">Carnivore</span> est un <span class="classe">Animal</span> qui <span class="propriete">mange</span> aussi un <span class="classe">Animal</span>.
+    </li>
+    <li id="VIII">Une <span class="classe">Girafe</span> est un <span class="classe">Herbivore</span> qui ne <span class="propriete">mange</span> que des <span class="classe">Feuille</span>s.
+    </li>
+    <li id="IX">Un <span class="classe">Lion</span> est un <span class="classe">Carnivore</span> qui ne <span class="propriete">mange</span> que des <span class="classe">Herbivore</span>s.
+    </li>
+    <li id="X">Une <span class="classe">PlanteSavoureuse</span> est une <span class="classe">Plante</span> qui est <span class="propriete">mangée par</span> un <span class="classe">Herbivore</span> et aussi par un <span class="classe">Carnivore</span>.
+    </li>
+</ul>
+    
+<h2>Étapes de création de l'ontologie</h2>
+    
+<div class="stepStart">
+    <div class="step">
+        Lancer <span class="protege">Protégé</span> et vous devriez obtenir une configuration semblable à la prochaine figure qui peut différer légèrement sur différentes plateformes (on peut le modifier via le menu <span class="interface">Window</span>).<br/>
+        Pour ce tutoriel, vous pouvez ignorer les mises à jour de <em>plug-in</em> offertes au lancement du programme. 
+    </div>
+    <div class="step">
+        Définir l'<span class="interface">Ontology IRI</span>. Entrez un URI qui vous <em>ressemble</em> ;).
+    </div>
+    <div class="step">
+        Dans le menu système <span class="interface">File/Save</span>, indiquer le format de sauvegarde de l'ontologie, je suggère <span class="interface">RDF/XML</span> et l'endroit sur votre disque où sera conservée l'ontologie.
+    </div>
+    <div class="step">
+        En principe, votre écran devrait ressembler à celui-ci:
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure1.jpg" alt="Écran initial de lancement" title="Figure 2">
+        </p>
+    </div>
+    <div class="step">
+        L'écran est divisé en <em>vues</em> (<em>views</em> en anglais) qui dépendent des <em>onglets</em> (<em>tabs</em> en anglais) accessibles en cliquant sur un des éléments d'une liste de titres <span class="interface">Active Ontology, Entities, ...</span>. Appuyer sur chacun de ses onglets pour constater les changements d'affichage des vues. Certaines vues (par exemple <span class="interface">Entities</span>) possèdent eux-mêmes des sous-onglets qui ont eux-mêmes plusieurs vues. On peut configurer l'écran en ajoutant des vues et des onglets (<em>tabs</em>) dans les menus <span class="interface">Window&gt;View</span> et <span class="interface">Window&gt;Tabs</span>. Voir <a href="http://protegeproject.github.io/protege/views/" title="Views">ce document</a> pour plus de détails sur la manipulation de l'interface. Il y a des vidéos expliquant comment manipuler <a href="https://www.youtube.com/watch?time_continue=4&amp;v=JObQC-L2piA">les vues</a> et <a href="https://www.youtube.com/watch?time_continue=20&amp;v=rO2pYQr1l-M">les onglets</a> 
+    </div>
+    <div class="h3">
+        Définition des classes simples
+    </div>
+    <div class="step">
+Dans l'onglet <span class="interface">Entities</span>, choisir le sous-onglet <span class="interface">Classes</span>. Cliquer sur le mot <span class="interface">owl:Thing</span> dans la vue <span class="interface">Class hierarchy</span> qui est la racine de toutes les classes que nous allons créer. En appuyant sur le premier bouton en haut à gauche de cette vue, un dialogue apparait qui permet de créer une classe qui sera un enfant de la classe sélectionnée. On peut ainsi définir des sous-classes. Le deuxième bouton permet de créer une classe <em>soeur</em> de la classe sélectionnée. Le troisième bouton détruit la classe sélectionnée ainsi que ses sous-classes.
+    </div>
+    <div class="step">
+        Faire de même pour créer la hiérarchie des classes dont les noms sont <span class="classe">en gras</span> dans la liste des énoncés <a href="http://www.iro.umontreal.ca/~lapalme/ift6282/OWL/EtapesCreationOntologie.html#enonces">plus haut</a> pour obtenir une figure semblable à celle-ci (ne pas tenir compte de l'ordre des classes et sous-classes). Ne définir ici que les noms des classes et leur hiérarchie, sans tenir des autres types de contraintes pour le moment.
+        <p>
+            <strong>Attention</strong>: Ne pas oublier d'indiquer que les classes <span class="classe">Plante</span> et <span class="classe">Animal</span> sont disjointes en choisissant une de celles-ci et en indiquant l'autre dans <span class="interface">Disjoint With</span> de la vue <span class="interface">Description</span>.
+        </p>
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure2.jpg" alt="Après la création initiale des classes" title="Figure 2">
+        </p>
+        <p>
+            La partie droite de l'écran permet de voir des informations sur les classes et d'en changer les caractéristiques.
+        </p>
+    </div>
+    <div class="h3">
+        Définition des propriétés
+    </div>
+    <div class="step">
+        Appuyer sur l'onglet <span class="interface">Object Properties</span> et, en utilisant le bouton en haut à gauche, créer les 3 propriétés suivantes:
+         <ul>
+             <li><span class="propriete">mange</span> dont le domaine est un <span class="classe">Animal</span>: choisir l'onglet <span class="interface">Class hierarchy</span> dans la fenêtre qui apparaît en cliquant sur le <span class="interface">+</span> à l'item <span class="interface">Domains (intersections)</span> de la vue <span class="interface">Description</span></li> 
+            <li><span class="propriete">mangePar</span> inverse de <span class="propriete">mange</span> en choisissant la propriété dans la fenêtre qui apparaît en cliquant sur le <span class="interface">+</span> à l'item <span class="interface">inverse Of</span> de la vue <span class="interface">Description</span> </li>
+            <li><span class="propriete">partieDe</span> transitive indiquée en cochant <span class="interface">Transitive</span> dans la vue <span class="interface">Characteristics</span></li>
+        </ul> 
+         
+         Vous devriez obtenir une figure semblable à celle-ci:
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure3.jpg" alt="Après la définition des propriétés" title="Figure 3">
+        </p>
+    </div>
+    <div class="step">
+        Sauver l'ontologie avec l'item <span class="propriete">Save</span> du menu système <span class="propriete">File</span>. Ceci créera un fichier dans le format RDF/XML qu'il peut être instructif d'ouvrir avec un éditeur de texte ou XML pour voir le code généré par <span class="protege">Protégé</span>.
+    </div>
+    <div class="h3">
+        Définition des classes complexes
+    </div>
+    <div class="step">
+        Revenir dans l'onglet <span class="interface">Classes</span> pour compléter les descriptions de classes complexes. Pour l'énoncé IV
+        <blockquote>
+            <p>
+                «Une <span class="classe">Branche</span> est une <span class="propriete">partie d'</span>un <span class="classe">Arbre</span>»
+            </p>
+        </blockquote>il faut choisir la classe <span class="classe">Branche</span> dans la vue <span class="interface">Class hierarchy</span> et cliquer sur <span class="interface">SubClass Of</span> dans la vue <span class="classe">Description</span> pour faire apparaître une fenêtre permettant de définir une expression définissant la superclasse. Dans cette fenêtre, choisir l'onglet <span class="interface">Object restriction creator</span> et sélectionner la propriété <span class="propriete">partieDe</span> à gauche, <span class="classe">Arbre</span> à droite et <span class="interface">Only (universal)</span> dans le menu en bas comme dans cette figure:
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure4.jpg" alt="Définition d&#39;une première classe complexe (énoncé IV)" title="Figure 4">
+        </p>
+        <p>
+            Ceci permet d'exprimer qu'une branche fait toujours partie d'un arbre et lorsqu'on clique <span class="interface">OK</span>, on obtient sous la rubrique <span class="interface">SubClass Of</span> de la vue <span class="interface">Description</span> l'expression correspondante en <a href="https://www.w3.org/TR/owl2-manchester-syntax/">syntaxe de Manchester</a>: <tt>partieDe only Arbre</tt>  [<a href="http://protegeproject.github.io/protege/class-expression-syntax/" title="Class Expression Syntax">plus de détails sur la syntaxe des expressions de classe</a>].
+        </p>
+    </div>
+    <div class="step">
+        Effectuer une manipulation similaire pour l'énoncé V
+        <blockquote>
+            <p>
+                «Une <span class="classe">Feuille</span> est une <span class="propriete">partie d'</span>une <span class="classe">Branche</span>»
+            </p>
+        </blockquote>de façon à obtenir l'expression <tt>partieDe only Branche</tt> comme <span class="interface">SubClass Of</span> de <span class="classe">Feuille</span>.
+    </div>
+    <div class="step">
+        Pour l'énoncé VI
+        <blockquote>
+            <p>
+                «Un <span class="classe">Herbivore</span> est un <span class="classe">Animal</span> qui ne <span class="propriete">mange</span> qu'une <span class="classe">Plante</span> ou une partie d'une <span class="classe">Plante</span>»
+            </p>
+        </blockquote>choisir <span class="classe">Herbivore</span> dans la vue <span class="interface">Class hierarchy</span> et, dans la vue <span class="interface">Description</span> à l'item <span class="interface">SubClass Of</span>, cliquer sur le dernier bouton à droite (<em>Edit</em>) pour écrire <span class="classe">Animal and mange only (Plante or partieDe only Plante)</span> directement l'expression en syntaxe de Manchester dans l'onglet <span class="interface">Class expression editor</span> de la fenêtre qui apparaît, comme dans la figure suivante:
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure5.jpg" alt="Définition d&#39;une autre classe complexe (énoncé VI)" title="Figure 5">
+        </p>
+        <p>
+            Au lieu de taper les noms des classes ou propriétés, on peut les glisser à partir d'autres vues et ainsi éviter des erreurs de frappe. L'éditeur effectue une vérification syntaxique de l'expression à mesure de la frappe. Il est possible d'obtenir une liste de suggestions en tapant sur CTRL-espace ou TAB en tout temps.
+        </p>
+    </div>
+    <div class="step">
+        Pour l'énoncé VII
+        <blockquote>
+            <p>
+                «Un <span class="classe">Carnivore</span> est un <span class="classe">Animal</span> qui <span class="propriete">mange</span> aussi un <span class="classe">Animal</span>.»
+            </p>
+        </blockquote>modifier la définition de la superclasse pour indiquer qu'un carnivore peut aussi manger un autre carnivore pour obtenir la figure suivante:
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure6.jpg" alt="Définition associée à l&#39;énoncé VII" title="Figure 6">
+        </p>
+    </div>
+    <div class="step">
+        Pour VIII
+        <blockquote>
+            <p>
+                «Une <span class="classe">Girafe</span> est un <span class="classe">Herbivore</span> qui ne <span class="propriete">mange</span> que des <span class="classe">Feuille</span>s.»
+            </p>
+        </blockquote>ajouter une superclasse pour obtenir la figure suivante:
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure7.jpg" alt="Définition associée à l&#39;énoncé VIII" title="Figure 7">
+        </p>
+    </div>
+    <div class="step">
+        Pour IX
+        <blockquote>
+            <p>
+                «Un <span class="classe">Lion</span> est un <span class="classe">Animal</span> qui ne <span class="propriete">mange</span> que des <span class="classe">Herbivore</span>s.»
+            </p>
+        </blockquote>Ajouter une superclasse pour obtenir la figure suivante:
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure8.jpg" alt="Définition associée à l&#39;énoncé IX" title="Figure 8">
+        </p>
+    </div>
+    <div class="step">
+        Pour X
+        <blockquote>
+            <p>
+                «Une <span class="classe">PlanteSavoureuse</span> est une <span class="classe">Plante</span> qui est <span class="propriete">mangée par</span> un <span class="classe">Herbivore</span> et aussi par un <span class="classe">Carnivore</span>»
+            </p>
+        </blockquote>ajouter deux superclasses à PlanteSavoureuse pour obtenir la figure suivante:
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure9.jpg" alt="Définition associée à l&#39;énoncé X" title="Figure 9">
+        </p>
+        <p>
+            Lorsque les expressions de classe deviennent complexes, il est utile d'ajouter une annotation de type comment en appuyant sur le signe <span class="interface">+</span> à côté de <span class="interface">Annotations</span> dans la vue <span class="interface">Annotations</span> ce qui fait apparaître une fenêtre semblable à la suivante:
+        </p>
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure10.jpg" alt="Annotation associée à l&#39;énoncé X" title="Figure 10">
+        </p>
+    </div>
+    <div class="step">
+        <p>Sauvez votre ontologie dans le format RDF/XML. Il peut être instructif d'ouvrir le fichier que vous venez de sauver avec un éditeur de texte ou XML pour voir le code généré par <span class="protege">Protégé</span>.</p> 
+        <p>Il est possible de voir le rendu RDF/XML dans l'onglet <span class="interface">Active Ontology</span> la vue <tt>RDF/XML Rendering</tt> qui affiche le contenu de l'ontologie dans cette syntaxe. Si cette vue n'apparaît pas, choisissez l'item de menu système <span class="interface">Window&gt;Views&gt;Ontology&nbsp;Views&gt;RDF/XML&nbsp;Rendering</span> et placer le <em>point</em> qui apparaît au milieu de la vue du bas et cliquer pour y ajouter cette nouvelle vue. Cette vue est générée à partir des informations conservées par <span class="protege">Protégé</span>, elle <strong>ne peut pas</strong> servir à modifier l'ontologie <i>à la main</i>. </p>
+    </div>
+    <div class="step">
+        <p>Il peut être intéressant d'explorer la hiérarchie à l'onglet global <span class="interface">DL Query</span>. L'interrogation de l'ontologie est effectuée avec un langage spécial inspiré de la syntaxe de Manchester décrit <a href="http://protegewiki.stanford.edu/wiki/DLQueryTab" title="DLQueryTab - Protege Wiki">dans ce document</a>.</p>
+        <p>Il est aussi possible d'avoir une visualisation de l'ontologie avec la vue <span class="interface">OntoGraf</span> disponible à <span class="interface">Window&gt;Views&gt;Class views&gt;Ontograf</span>.</p>
+    </div>
+</div>
+<h2>Ajout d'individus</h2>
+<div class="stepStart">
+    <div class="step">
+        <p>Ajouter des instances des classes dans l'onglet <span class="interface">Individuals by class</span> en sélectionnant une classe dans la vue en haut à gauche et en ajoutant un individu comme membre dans la vue <span class="interface">Instances</span>.</p> 
+        <p>Ajouter les individus suivants:</p>
+        <ul> 
+            <li><tt>Léo</tt> le <span class="classe">Lion</span></li>
+            <li><tt>Sophie</tt> la <span class="classe">Girafe</span></li>
+            <li><tt>Olivier</tt> l'<span class="classe">Arbre</span></li>
+            <li><tt>Rose-Marie</tt> la <span class="classe">PlanteSavoureuse</span></li>
+            <li><tt>Batavia</tt> la <span class="classe">Feuille</span></li>
+            <li><tt>LaPalme</tt> la <span class="classe">Branche</span>. </li>
+        </ul>
+        <p>Pour indiquer que ces individus sont tous différents, il suffit d'en choisir un et d'appuyer sur le <tt>+</tt> à côté de <span class="interface">Different individuals</span> dans la vue <span class="interface">Description</span> et de sélectionner les autres individus dans la fenêtre qui apparaîtra. Tous les individus seront alors considérés comme distincts comme on peut le constater en les sélectionnant dans la vue <span class="interface">Individuals</span>.</p> 
+        <p>Une figure équivalente à la suivante devrait alors apparaître:</p>
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure11.jpg" alt="Ajout des individus" title="Figure 11">
+        </p>
+    </div>
+</div>
+<h2>Vérification de la cohérence de l'ontologie</h2>
+<p>
+    Le grand intérêt de l'utilisation de <span class="protege">Protégé</span> est la possibilité de vérifier si l'ontologie créée ne contient pas des définitions contradictoires. Avec une ontologie aussi simpliste que celle que nous avons construite dans ce document, il est facile de vérifier à la main la cohérence du tout mais ceci est pratiquement impossible pour des cas plus complexes. Nous allons illustrer le processus de vérification en créant une classe qui serait à la fois une plante et un animal.
+</p>
+<div class="stepStart">
+    <div class="step">
+        Ajouter une nouvelle classe <span class="classe">AnimalPlante</span> sous <span class="interface">owl:Thing</span> et définir à <span class="interface">SubClass Of</span> l'expression <tt>Animal and Plante</tt>. La classe <span class="classe">AnimalPlante</span> sera alors placée à la fois sous <span class="classe">Animal</span> et <span class="classe">Plante</span> comme dans la figure suivante:
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure12.jpg" alt="Classe héritant de Plante et Animal" title="Figure 12">
+        </p>
+    </div>
+    <div class="step">
+        Dans le menu <span class="interface">Reasoner</span>, sélectionner <span class="interface">HermiT</span>, s'il n'y a pas déjà un crochet dans l'item de menu; sélectionner ensuite <span class="interface">Start Reasoner</span>. Dans la vue <span class="interface">Class hierarchy</span> en choisissant l'item de menu <span class="interface">Inferred</span> devraient apparaître les classes inconsistantes en rouge, comme dans cette figure:
+        <p>
+            <img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/Figure13.jpg" alt="Présentation des classes inconsistantes" title="Figure 13"/>
+        </p>
+        <p>
+            La classe <span class="classe">AnimalPlante</span> apparaît comme inconsistante car nous avons déclaré (<a href="http://www.iro.umontreal.ca/~lapalme/ift6282/OWL/EtapesCreationOntologie.html#II">à l'énoncé II</a>) que les classes <span class="classe">Animal</span> et <span class="classe">Plante</span> doivent être disjointes. Cette explication est d'ailleurs fournie par <span class="protege">Protégé</span> si on clique sur le point d'interrogation à côté de <span class="classe">owl:Nothing</span> dans la vue <span class="interface">Description</span>.
+        </p>
+    </div>
+    <div class="step">
+        Pour revenir à une ontologie consistante, il suffit d'éliminer la définition des superclasses de <span class="classe">AnimalPlante</span>. Il faut choisir l'item de menu <span class="interface">Asserted</span>, choisir la classe à éliminer et cliquer sur le troisième bouton. Pour s'assurer que tout est maintenant cohérent, choisir à nouveau <span class="interface">Synchronize reasoner</span> dans le menu système <span class="interface">Reasoner</span>. Il ne devrait plus rien apparaître sous l'item <span class="classe">Nothing</span> en rouge dans la vue <span class="interface">Class hierarchy</span> lorsqu'on choisit l'item <span class="interface">Inferred</span>.
+    </div>
+</div>
+<h2>Pour aller plus loin...</h2>
+<p>
+    Ce petit exemple ne fait pas ressortir toutes les possibilités de <span class="protege">Protégé</span>, en particulier nous n'avons pas expliqué comment modifier les vues et leur position, ou la création de plusieurs classes en spécifiant leur hiérarchie, ni toutes les subtilités de la modélisation d'ontologie.
+</p>
+<p>
+    La prochaine étape devrait être maintenant de lire et d'expérimenter avec <a href="http://mowl-power.cs.man.ac.uk/protegeowltutorial/resources/ProtegeOWLTutorialP4_v1_3.pdf" title="">A Practical Guide To Building OWL Ontologies Using Protégé 4 and CO-ODE Tools</a> qui développe en détails l'exemple du <em>domaine de la pizza</em> qui est aussi exploré <a href="https://protegewiki.stanford.edu/wiki/Protege4Pizzas10Minutes">dans cet autre tutoriel</a>. Ces tutoriels utilisent une version antérieure de l'interface de <span class="protege">Protégé</span>, mais les principes de base restent les mêmes.
+</p>
+<p>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px" src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/vcss" alt="CSS Valide !" />
+    </a>
+    <a href="http://validator.w3.org/check?uri=referer"><img src="./Tutoriel Protégé 5.2 - Création d&#39;une petite ontologie_files/valid-xhtml10" alt="Valid XHTML 1.0 Strict" style="border:0;width:88px;height:31px" /></a>
+</p>
+
+    </div>
+</body>
+</html>

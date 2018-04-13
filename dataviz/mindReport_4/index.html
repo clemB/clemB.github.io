@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<link rel="stylesheet" type="text/css" href="style.css"  />
+    </head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+    
+    // on charge le SVG
+    $.get('mindreportnew.svg', function(data) { 
+        $(document.body).append(data.documentElement);
+        init(); // on lance la fonction init() présente en dessous;
+    });
+
+    
+
+</script>
+
+<body>
+</body>
+
+<script>
+  function init() {
+      // on définit les interactions.
+      // les élements sont identifiable par le nom du calque Illustrator
+	  
+		$('#dmr1').hide();
+		$('#dmr2').hide();
+		$('#dmr3').hide();
+	
+		
+	  
+		$('#bmr1').hover(             // au clic sur Btn2
+			function() {
+				$('#dmr1').toggle();
+				$('#dmr2').hide();
+				$('#dmr3').hide();
+			}
+		);
+		
+		$('#bmr2').hover(             // au clic sur Btn2
+			function() {
+				$('#dmr2').toggle();
+				$('#dmr1').hide();
+				$('#dmr3').hide();
+			}
+		);
+		
+		$('#bmr3').hover(             // au clic sur Btn3
+			function() {
+				$('#dmr3').toggle();
+				$('#dmr1').hide();
+				$('#dmr2').hide();
+			}
+		);
+		$('#bmr1').click(             // au clic sur Btn3
+			function() {
+				window.open('https://mailchi.mp/30c52615cbaa/mind-report-no1');
+			}
+		);
+		$('#bmr2').click(             // au clic sur Btn3
+			function() {
+				window.open('https://mailchi.mp/7030cd9625cc/mind-report-no2-fvrier-2018');
+			}
+		);
+		$('#bmr3').click(             // au clic sur Btn3
+			function() {
+				window.open('https://mailchi.mp/d501f2db4382/mind-report-no3-mars-2018');
+			}
+		);
+		$('#logo').click(             // au clic sur Btn3
+			function() {
+				window.open('http://www.infonumbordeaux.fr/mind/');
+			}
+		);
+		
+  };
+  </script>
+    
+</html>

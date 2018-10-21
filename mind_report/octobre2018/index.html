@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<title>Baromètre France Esport 2018</title>
+    </head>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+    
+    // on charge le SVG
+    $.get('dataviz_esport.svg', function(data) { 
+        $(document.body).append(data.documentElement);
+        init(); // on lance la fonction init() présente en dessous;
+    });
+
+    
+  function init() {
+      // on définit les interactions.
+      // les élements sont identifiable par le nom du calque Illustrator
+      
+    $('#bouton_x5F_sexe').hover(               // au survol sur Btn2
+        function() {
+            $('#ecran_x5F_sexe').show();
+            $('#ecran_x5F_age').hide();
+            $('#ecran_x5F_cate').hide();
+            $('#ecran_x5F_jeux').hide();
+            $('#ecran_x5F_conso').hide();
+            $('#ecran_x5F_pratiq').hide();
+        },
+        function(){                 // à la sortie du survol sur Btn2
+            $('#ecran_x5F_sexe').hide();
+            $('#ecran_x5F_age').hide();
+            $('#ecran_x5F_cate').hide();
+            $('#ecran_x5F_jeux').hide();
+            $('#ecran_x5F_conso').hide();
+            $('#ecran_x5F_pratiq').hide();
+        }
+    );
+      
+    $('#bouton_x5F_age').hover(               // au survol sur Btn2
+        function() {
+            $('#ecran_x5F_sexe').hide();
+            $('#ecran_x5F_age').show();
+            $('#ecran_x5F_cate').hide();
+            $('#ecran_x5F_jeux').hide();
+            $('#ecran_x5F_conso').hide();
+            $('#ecran_x5F_pratiq').hide();
+        },
+        function(){                 // à la sortie du survol sur Btn2
+            $('#ecran_x5F_sexe').hide();
+            $('#ecran_x5F_age').hide();
+            $('#ecran_x5F_cate').hide();
+            $('#ecran_x5F_jeux').hide();
+            $('#ecran_x5F_conso').hide();
+            $('#ecran_x5F_pratiq').hide();
+        }
+    );
+      
+    $('#bouton_x5F_cate').hover(               // au survol sur Btn2
+        function() {
+            $('#ecran_x5F_sexe').hide();
+            $('#ecran_x5F_age').hide();
+            $('#ecran_x5F_cate').show();
+            $('#ecran_x5F_jeux').hide();
+            $('#ecran_x5F_conso').hide();
+            $('#ecran_x5F_pratiq').hide();
+        },
+        function(){                 // à la sortie du survol sur Btn2
+            $('#ecran_x5F_sexe').hide();
+            $('#ecran_x5F_age').hide();
+            $('#ecran_x5F_cate').hide();
+            $('#ecran_x5F_jeux').hide();
+            $('#ecran_x5F_conso').hide();
+            $('#ecran_x5F_pratiq').hide();
+        }
+    );
+      
+    $('#boutons_x5F_jeux').hover(               // au survol sur Btn2
+        function() {
+            $('#ecran_x5F_sexe').hide();
+            $('#ecran_x5F_age').hide();
+            $('#ecran_x5F_cate').hide();
+            $('#ecran_x5F_jeux').show();
+            $('#ecran_x5F_conso').hide();
+            $('#ecran_x5F_pratiq').hide();
+        },
+        function(){                 // à la sortie du survol sur Btn2
+            $('#ecran_x5F_sexe').hide();
+            $('#ecran_x5F_age').hide();
+            $('#ecran_x5F_cate').hide();
+            $('#ecran_x5F_jeux').hide();
+            $('#ecran_x5F_conso').hide();
+            $('#ecran_x5F_pratiq').hide();
+        }
+    );
+      
+    $('#bouton_x5F_conso').hover(               // au survol sur Btn2
+        function() {
+            $('#ecran_x5F_sexe').hide();
+            $('#ecran_x5F_age').hide();
+            $('#ecran_x5F_cate').hide();
+            $('#ecran_x5F_jeux').hide();
+            $('#ecran_x5F_conso').show();
+            $('#ecran_x5F_pratiq').hide();
+        },
+        function(){                 // à la sortie du survol sur Btn2
+            $('#ecran_x5F_sexe').hide();
+            $('#ecran_x5F_age').hide();
+            $('#ecran_x5F_cate').hide();
+            $('#ecran_x5F_jeux').hide();
+            $('#ecran_x5F_conso').hide();
+            $('#ecran_x5F_pratiq').hide();
+        }
+    );
+      
+    $('#bouton_x5F_pratiq').hover(               // au survol sur Btn2
+        function() {
+            $('#ecran_x5F_sexe').hide();
+            $('#ecran_x5F_age').hide();
+            $('#ecran_x5F_cate').hide();
+            $('#ecran_x5F_jeux').hide();
+            $('#ecran_x5F_conso').hide();
+            $('#ecran_x5F_pratiq').show();
+        },
+        function(){                 // à la sortie du survol sur Btn2
+            $('#ecran_x5F_sexe').hide();
+            $('#ecran_x5F_age').hide();
+            $('#ecran_x5F_cate').hide();
+            $('#ecran_x5F_jeux').hide();
+            $('#ecran_x5F_conso').hide();
+            $('#ecran_x5F_pratiq').hide();
+        }
+    );
+    
+  }
+</script>
+    
+    <p>Infographie réalisée d'après les données du <a href="https://www.mediametrie.fr/comportements/communiques/5-5-millions-d-internautes-sont-des-consommateurs-d-esport.php?id=1946" target="_blank">Baromètre France Esport 2018</a> publié par France Esport et réalisé par Médiamétrie.</p>
+    
+</html>

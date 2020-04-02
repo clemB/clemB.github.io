@@ -1,0 +1,1702 @@
+
+
+
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Cours d'infographie pour l'atrelier économie du numérique - MMI1">
+      
+      
+        <link rel="canonical" href="https://clemb.github.io/infographie_econum/Ch06_siteflex/">
+      
+      
+        <meta name="author" content="Clément Borel">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copier dans le presse-papier">
+      
+        <meta name="lang:clipboard.copied" content="Copié dans le presse-papier">
+      
+        <meta name="lang:search.language" content="fr">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Aucun document trouvé">
+      
+        <meta name="lang:search.result.one" content="1 document trouvé">
+      
+        <meta name="lang:search.result.other" content="# documents trouvés">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Ch.6 - FlexBox en pratique - Cours - Conception Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#flexbox-en-pratique" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://clemb.github.io/infographie_econum/" title="Cours - Conception Web" aria-label="Cours - Conception Web" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">home</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Cours - Conception Web
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Ch.6 - FlexBox en pratique
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Taper pour démarrer la recherche
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://clemb.github.io/infographie_econum/" title="Cours - Conception Web" class="md-nav__button md-logo">
+      
+        <i class="md-icon">home</i>
+      
+    </a>
+    Cours - Conception Web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch01_rappel/" title="Ch.1 - Rappel" class="md-nav__link">
+      Ch.1 - Rappel
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch02_structure/" title="Ch.2 - Structurer votre site" class="md-nav__link">
+      Ch.2 - Structurer votre site
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch03_boite/" title="Ch.3 - Le modèle de boîtes" class="md-nav__link">
+      Ch.3 - Le modèle de boîtes
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch04_pratique/" title="Ch.4 - HTML et CSS en pratique" class="md-nav__link">
+      Ch.4 - HTML et CSS en pratique
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch05_flexbox/" title="Ch.5 - Mise en page FlexBox" class="md-nav__link">
+      Ch.5 - Mise en page FlexBox
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Ch.6 - FlexBox en pratique
+      </label>
+    
+    <a href="./" title="Ch.6 - FlexBox en pratique" class="md-nav__link md-nav__link--active">
+      Ch.6 - FlexBox en pratique
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#squelette-html" class="md-nav__link">
+    Squelette HTML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mettre-en-forme-en-css" class="md-nav__link">
+    Mettre en forme en CSS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-titres-et-les-polices" class="md-nav__link">
+    Les titres et les polices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-titre" class="md-nav__link">
+    Le titre
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-recettes" class="md-nav__link">
+    Les recettes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-images" class="md-nav__link">
+    Les images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-menu" class="md-nav__link">
+    Le menu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-taille-des-differentes-parties" class="md-nav__link">
+    La taille des différentes parties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classe-ou-identifiant" class="md-nav__link">
+    Classe ou identifiant ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recapitulatif" class="md-nav__link">
+    Récapitulatif
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-vous-de-jouer" class="md-nav__link">
+    À vous de jouer
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch07_ressources/" title="Ch.7 - Quelques ressources" class="md-nav__link">
+      Ch.7 - Quelques ressources
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#squelette-html" class="md-nav__link">
+    Squelette HTML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mettre-en-forme-en-css" class="md-nav__link">
+    Mettre en forme en CSS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-titres-et-les-polices" class="md-nav__link">
+    Les titres et les polices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-titre" class="md-nav__link">
+    Le titre
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-recettes" class="md-nav__link">
+    Les recettes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-images" class="md-nav__link">
+    Les images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-menu" class="md-nav__link">
+    Le menu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-taille-des-differentes-parties" class="md-nav__link">
+    La taille des différentes parties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classe-ou-identifiant" class="md-nav__link">
+    Classe ou identifiant ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recapitulatif" class="md-nav__link">
+    Récapitulatif
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-vous-de-jouer" class="md-nav__link">
+    À vous de jouer
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="flexbox-en-pratique">Flexbox en pratique</h1>
+<p>Nous souhaitons réaliser un site de recettes de cuisine. 
+La première étape consiste à réaliser la <strong>maquette</strong> de notre site. Celle-ci peut  très détaillée (réalisée avec Illustrator ou Photoshop par exemple) ou beaucoup plus simple, sous forme d'un simple crayonné.</p>
+<p><img alt="" src="../assets/SqueletteSite.jpg" />
+<em class="legend">Squelette du site</em></p>
+<p><img alt="Site final" src="../assets/SiteOnePage.jpg" />
+<em class="legend">Maquette du site</em></p>
+<p>Voilà donc le site que je souhaite réaliser. C'est un site <em>one page</em>. Il est composé d'un menu en haut, suivi d'un en-tête avec le titre qui prend toute la haute de l'écran. Viennent ensuite 2 autres "pages" (qui prennent toute la hauteur de l'écran) contenant me recettes et une illustration. En bas du site se trouve un pied de page contenant quelques informations complémentaires.</p>
+<p>Chaque fiche recette est composée d'un titre, de la liste des ingrédients et de la liste des étapes à suivre.</p>
+<p>Nous allons procéder en deux temps :
+1. Nous allons construire le squelette<strong>HTML</strong>de la page.
+2. Puis nous allons le mettre en forme et le mettre en page avec<strong>CSS</strong>.</p>
+<h2 id="squelette-html">Squelette HTML</h2>
+<p>La première chose à faire est de distinguer les principaux blocs sur la maquette. Ces blocs vont constituer le squelette de notre page.</p>
+<p>Pour créer ce squelette, nous allons utiliser différentes balises HTML :
+- les balises structurantes de HTML5, que nous connaissons : <code>&lt;header&gt;</code>,<code>&lt;section&gt;</code>,<code>&lt;nav&gt;</code>, etc. ;
+- la balise universelle<code>&lt;div&gt;</code>quand aucune balise structurante ne convient.</p>
+<div class="admonition question">
+<p>Comment savoir quelle balise utiliser ? </p>
+</div>
+<p><strong>C'est à vous de décider</strong>. De préférence, utilisez une balise qui a du sens (comme les balises structurantes<code>&lt;header&gt;</code>,<code>&lt;section&gt;</code>,<code>&lt;nav&gt;</code>) mais, si aucune balise ne vous semble mieux convenir, optez pour la balise générique<code>&lt;div&gt;</code>.</p>
+<p>Dans notre cas, j'opterais pours cette structure :
+<img alt="structure HTML" src="../assets/StructureHTML.png" />
+<em class="legend">Structure HTML du site</em></p>
+<div class="admonition note">
+<p>On peut imaginer d'autres façons de faire le découpage, retenez bien que ma proposition n'est pas forcément la seule et unique solution !</p>
+</div>
+<p>Toutes les balises que l'on va utiliser n'apparaissent pas sur cette maquette mais cela vous permet d'avoir une idée de l'imbrication que je propose pour les éléments.</p>
+<p>Le HTML n'est pas vraiment la partie complexe de la réalisation du site web. En fait, si vous avez bien compris comment imbriquer des balises, vous ne devriez pas avoir de mal à réaliser un code approchant du mien.</p>
+<p>Voici la structure globale :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Recettes de Cuisine<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- votre menu de navigation --&gt;</span> 
+    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Mes recettes<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>               
+
+    <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span> 
+        <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+            <span class="c">&lt;!-- votre recette --&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span> 
+        <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+            <span class="c">&lt;!-- votre recette --&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span> 
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="c">&lt;!-- votre pied de page --&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Par soucis de lisibilité, j'ai volontairement supprimé de ce code les contenus du menu et des articles. Voilà à quoi ils ressembles :</p>
+<p>Menu :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Recette 1<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Recette 2<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Article :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Titre recette<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Ingrédients :<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span> 
+                    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>50 cl d&#39;ingrédient 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>1 ingrégient 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>2 cs d&#39;ingrédient 3<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>   
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Recette : <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+                       <span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Faites cela.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Faites ceci.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Puis faites cela.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Et enfin faites ceci.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+
+<div class="admonition example">
+<ul>
+<li>Vous pouvez télécharger <a href="https://www.dropbox.com/s/d6seaii3ta23i3f/SiteWeb_recette_v0.zip?dl=0">l'exemple complet</a> sans mise en forme CSS.</li>
+<li>Ceux qui le souhaite, peuvent essayer de réaliser la mise en page seuls ; pour les autres, je la détaille juste après.    </li>
+</ul>
+</div>
+<h2 id="mettre-en-forme-en-css">Mettre en forme en CSS</h2>
+<p>Les choses se compliquent un peu plus lorsqu'on arrive au CSS. En effet, il faut du travail (et parfois un peu d'astuce) pour obtenir un résultat se rapprochant de la maquette. Je dis bien « se rapprochant » car vous ne pourrez jamais obtenir un résultat identique au pixel près.</p>
+<p>Mettez-vous bien cela en tête : le but est d'obtenir le rendu <strong>le plus proche possible</strong>, sans chercher la perfection. D'un navigateur à l'autre, y aura des différences. </p>
+<div class="admonition tip">
+<p>Plus votre structure html est simple et claire, plus la mise en page et la stylisation sont simples.</p>
+</div>
+<div class="admonition exercice">
+<p>Essayez de pratiquer en parallèle en suivant les explications. N'hésitez pas à tenter quelques fantaisies ;)</p>
+</div>
+<h3 id="les-titres-et-les-polices">Les titres et les polices</h3>
+<p>J'ai choisi deux polices de caractère sur Google Font pour les textes de mon site.  Le titre du site ainsi que le titre des recettes seront en <em>Dancing Script</em>, le reste du texte en <em>Special Elite</em>.</p>
+<p>Je les importe : </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">/* Chargement des polices web (Google Font) */</span>
+<span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;https://fonts.googleapis.com/css?family=Dancing+Script|Special+Elite&#39;</span><span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Puis je déclare que l'ensemble des éléments de mon site (<code>body</code>) utiliseront la police  <em>Spécial Elite</em> ; sauf les <code>h1</code> et <code>h2</code> qui seront en <em>Dancing Script</em>. J'en profite pour ajuster la taille, l'alignement et la couleur des différents niveaux de titres.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">body</span><span class="p">{</span>
+    <span class="k">font-family</span><span class="p">:</span> <span class="s1">&#39;Special Elite&#39;</span><span class="p">,</span> <span class="kc">cursive</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h1</span><span class="p">{</span>
+    <span class="k">font-family</span><span class="p">:</span>    <span class="s1">&#39;Dancing Script&#39;</span><span class="p">,</span> <span class="kc">cursive</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="p">:</span>      <span class="mi">30</span><span class="kt">pt</span><span class="p">;</span>
+    <span class="k">color</span><span class="p">:</span>          <span class="kc">midnightblue</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="p">:</span>     <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h2</span><span class="p">{</span> 
+    <span class="k">font-family</span><span class="p">:</span>    <span class="s1">&#39;Dancing Script&#39;</span><span class="p">,</span> <span class="kc">cursive</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="p">:</span>      <span class="mi">30</span><span class="kt">pt</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="p">:</span>     <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span> 
+<span class="nt">h3</span><span class="p">{</span> 
+    <span class="k">font-size</span><span class="p">:</span>      <span class="mi">14</span><span class="kt">pt</span><span class="p">;</span>
+    <span class="k">color</span><span class="p">:</span>          <span class="kc">crimson</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<h3 id="le-titre">Le titre</h3>
+<p>Vous remarquerez que le titre ressemble à une étiquette d'écolier. Comment transformer notre <code>&lt;h1&gt;</code> pour s'en rapprocher ?</p>
+<p>Il faut :</p>
+<ul>
+<li>lui donner une taille (<code>width</code>, <code>height</code>)</li>
+<li>jouer sur la couleur de fond (<code>background-color</code>) et le contour (<code>border</code>)</li>
+<li>centrer horizontalement et verticalement le contenu (avec FlexBox)</li>
+<li>et pourquoi pas modifier légèrement la forme en mettant des bords arrondis (<code>border-radius</code>)</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">h1</span><span class="p">{</span>
+    <span class="c">/* taille de l&#39;étiquette */</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+
+    <span class="c">/* style de l&#39;étiquette */</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">ivory</span><span class="p">;</span> <span class="c">/* un blanc cassé pour le fond*/</span>
+    <span class="k">border</span><span class="p">:</span> <span class="kc">medium</span> <span class="kc">double</span> <span class="kc">midnightblue</span><span class="p">;</span> <span class="c">/* un contour double bleu foncé */</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span> <span class="c">/* bords arrondis */</span>
+
+    <span class="c">/* Centrer horizontalement et verticalement le contenu */</span>
+    <span class="k">display</span><span class="p">:</span>           <span class="kc">flex</span><span class="p">;</span> 
+    <span class="k">justify-content</span><span class="p">:</span>   <span class="kc">center</span><span class="p">;</span>
+    <span class="k">align-items</span><span class="p">:</span>       <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<h3 id="les-recettes">Les recettes</h3>
+<p>Sur chaque page, les "fiches recettes", partage le même aspect visuel : une certaine largeur, un fond coloré, des bords arrondis, des marges internes…</p>
+<div class="admonition tips">
+<p>Nous allons opter pour une taille en pourcentage afin que les articles puissent se redimensionner en fonction de la taille de l'écran. 
+Nous imposerons également une taille minimale (<code>min-width</code>) afin que nos articles gardent une taille raisonnable sur des petits écrans.</p>
+</div>
+<p>Tous nos <code>&lt;article&gt;</code> partagent donc les mêmes propriétés CSS :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">article</span> <span class="p">{</span>
+    <span class="c">/* taille : 40% de l&#39;écran mais pas moins de 400px */</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">40</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">min-width</span><span class="p">:</span> <span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
+
+    <span class="c">/* marges internes */</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+
+    <span class="c">/* style de la fiche */</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+    <span class="k">opacity</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">;</span> <span class="c">/* valeur de 0 à 1 */</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<h3 id="les-images">Les images</h3>
+<p>Stylisons un peu les images… </p>
+<p>Pour mon site de recettes, j'ai opté pour un rendu "manuel", comme si elles étaient collées sur mon cahier. </p>
+<p>Les photos on un contour blanc (<code>border</code>), une ombre portée (<code>box-shadow</code>) et sont légèrement inclinées (<code>transformation</code>).</p>
+<p>Comme pour les "fiches-recettes", nous allons exprimer une taille en pourcentage pour que les images puissent se redimensionner en fonction de la taille de l'écran mais également contraindre leur taille (<code>min-width</code>, <code>min-height</code>) pour limiter le rapetissement.</p>
+<p>Je ne souhaite pas nécessairement que toutes les images de mon site partagent ces styles. Seules les images de recettes doivent se comporter ainsi. Je vais donc créer une classe <code>.imgRecette</code> que j'appliquerai aux images souhaitées :</p>
+<p>Ne pas oublier de spécifier les classes en HTML :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;img/default.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;recette 1&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;imgRecette&quot;</span><span class="p">/&gt;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Puis le CSS :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">/* image recette (élément avec class=&quot;imgRecette&quot;) */</span>
+<span class="p">.</span><span class="nc">imgRecette</span><span class="p">{</span>
+    <span class="c">/* taille de l&#39;image : 30% de l&#39;écran */</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">40</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">min-width</span><span class="p">:</span> <span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
+
+    <span class="c">/* style de l&#39;image : bordure blanche, ombre portée, img inclinée */</span>
+    <span class="k">border</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="kc">solid</span> <span class="kc">white</span><span class="p">;</span>
+    <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span> <span class="mi">0</span><span class="kt">px</span> <span class="mi">10</span><span class="kt">px</span> <span class="kc">grey</span><span class="p">;</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">rotate</span><span class="p">(</span><span class="mi">3</span><span class="kt">deg</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<div class="admonition info">
+<p>C'était aussi l'occasion de vous montrer comment définir des ombres et effectuer des transformations géométriques. Plus d'info <a href="https://developer.mozilla.org/fr/docs/Web/CSS/box-shadow">ici</a> et <a href="https://developer.mozilla.org/fr/docs/Web/CSS/transform">là</a>.</p>
+<p>Notez qu'il existe aussi quelques outils en ligne pour générer le code CSS des ombres :</p>
+<ul>
+<li><a href="https://www.cssmatic.com/box-shadow">CssMatic - box-shadow</a></li>
+<li><a href="http://www.debray-jerome.fr/outils/Generateur-de-box-shadow-css3.html">Générateur de box-shadow</a></li>
+</ul>
+</div>
+<h3 id="le-menu">Le menu</h3>
+<p>Comme nous l'avons déjà vu, il est facile de créer un menu horizontal à partir d'une liste en utilisant la propriété <code>display:inline</code> (cf. Ch.4 - HTML et CSS en pratique). 
+Nous pouvons désormais essayer de mettre notre menu en page en utilisant la méthode FlexBox…</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">nav</span><span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="c">/* occupe toute la largeur disponible */</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span> <span class="c">/* style du menu : fond blanc */</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span> <span class="nt">ul</span><span class="p">{</span>
+    <span class="k">list-style-type</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span> <span class="c">/* style de la liste */</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span> <span class="c">/* utiliser la méthode flexbox */</span>
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">flex-end</span><span class="p">;</span> <span class="c">/* les éléments enfants alignés à droite */</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span> <span class="nt">ul</span> <span class="nt">li</span><span class="p">{</span>
+    <span class="k">min-width</span><span class="p">:</span> <span class="mi">250</span><span class="kt">px</span><span class="p">;</span> <span class="c">/* taille minimale */</span> 
+    <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span><span class="c">/* texte centré dans chaque item de menu */</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span> <span class="nt">a</span><span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+    <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span> <span class="c">/* pas de souslignement */</span>
+    <span class="k">color</span><span class="p">:</span> <span class="kc">black</span><span class="p">;</span> <span class="c">/* couleur noire */</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span> <span class="nt">a</span><span class="p">:</span><span class="nd">hover</span><span class="p">{</span>
+    <span class="k">color</span><span class="p">:</span> <span class="kc">crimson</span><span class="p">;</span> <span class="c">/* au clic, lien couleur cramoisie */</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<h3 id="la-taille-des-differentes-parties">La taille des différentes parties</h3>
+<p>Nous allons désormais travailler la taille des différentes parties du site (en-tête, section et pied-de-page).</p>
+<p>Pour le pied-de-page, c'est relativement simple. On lui donne une certaine hauteur, une certaine couleur, et le tour est jouer :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">footer</span> <span class="p">{</span> 
+    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#333333</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Pour l'en-tête (<code>header</code>) et les sections (<code>section</code>), c'est un peu plus délicat puisque nous souhaitons que chacune de ces parties occupent toute la hauteur de l'écran.
+ En réalité, c'est très simple... Il existe une unité (au même tityre que le <code>px</code>ou le <code>%</code>) qui exprime un pourcentage de la taille actuelle de l'écran. Il s'agit de <code>vw</code> (<em>viewport width</em>) pour la largeur et <code>vh</code> (<em>viewport height</em>) pour la hauteur ; les valeurs s'exprimant en pourcentage.</p>
+<p>Ainsi, un élément avec la propriété CSS :</p>
+<ul>
+<li><code>width:100vw</code>prendra toute la largeur de l'écran.</li>
+<li><code>height:100vh</code>prendra toute la hauteur de l'écran. </li>
+<li><code>height:50vh</code>prendra la moitié de la hauteur de l'écran. </li>
+<li>etc.</li>
+</ul>
+<div class="admonition warning">
+<p>Pour la largeur, préférez les tailles en pourcentage classique.</p>
+</div>
+<p>Donc en CSS, je dois ajouter :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">header</span><span class="p">{</span>
+    <span class="k">height</span><span class="p">:</span>    <span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span>     <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">section</span><span class="p">{</span>
+    <span class="k">height</span><span class="p">:</span>    <span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span>     <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Profitons-en pour modifier la couleur de fond de l'en-tête et des sections. 
+Pour l'en-tête j'ai choisi un motif vichy (genre "nappe de bistrot" ou "saucisson Cochonou®" si vous préférez). Le motif vichy, comme tous les motifs, consistent en un petit élément qui se répète à l'infini. </p>
+<p><img alt="Motif vichy" src="../assets/vichy.jpg" /></p>
+<div class="admonition tips"></div>
+<p>La bonne idée est d'utiliser une image de l'élément minimal du motif et de laisser CSS le répéter en image de fond (<code>background-image</code>). Cela prendra moins de place (en terme de poids) dans votre site et se chargera plus rapidement qu'une image entière.</p>
+<p>Reprenons donc :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">header</span><span class="p">{</span>
+    <span class="k">height</span><span class="p">:</span>    <span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span>     <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="s2">&quot;../img/vichy.jpg&quot;</span><span class="p">);</span>
+    <span class="c">/* comme d&#39;habitude, attention à l&#39;adressage de votre image en fonction de votre architecture ! */</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Pour les sections, une couleur de fond suffira mais il faut pouvoir différencier nos différentes sections (recette 1, recette 2, etc.). Car si j'écris...</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">section</span><span class="p">{</span>
+    <span class="k">height</span><span class="p">:</span><span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">beige</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>... toutes mes sections auront la même couleur ! On est d'accord ?</p>
+<p>Je dois donc utiliser une classe différente pour chaque section et définir le style de ces classes en CSS. </p>
+<p>N'oublions pas de le préciser dans le fichier HTML :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;recette1&quot;</span><span class="p">&gt;</span> ... <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;recette2&quot;</span><span class="p">&gt;</span> ... <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>En CSS on précise pour chaque classe la couleur que l'on souhaite :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">section</span><span class="p">{</span>
+    <span class="k">height</span><span class="p">:</span><span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">recette1</span><span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">beige</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">recette2</span><span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">pink</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<h2 id="classe-ou-identifiant">Classe ou identifiant ?</h2>
+<p>Il existe une autre possibilité afin de nommer individuellement des éléments en HTML et ainsi pouvoir les sélectionner indépendamment en CSS. Ce sont les <strong>identifiants</strong> <code>id</code>.</p>
+<p>En HTML, il s'agit d'un attribut qui fonctionne exactement de la même manière que<code>class</code> :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;recette1&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;recette2&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Et en CSS, on l'appelle grace au caractère <code>#</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">#</span><span class="nn">recette1</span><span class="p">{</span>
+    <span class="c">/* ici mes styles pour l&#39;élément avec id=&quot;recette1&quot; */</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>À la différence d'une classe qui peut être donnée à plusieurs éléments (rappelez-vous de l'exemple avec les boutons), un identifient ne peut être utilisé <strong>qu'une seule fois dans le code HTML</strong>. Si je suis mon exemple, je ne peux pas avoir un autre élément avec l'<code>id="recette1"</code>.</p>
+<p>Pour reprendre notre exemple :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">section</span><span class="p">{</span>
+    <span class="k">height</span><span class="p">:</span><span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">#</span><span class="nn">recette1</span> <span class="p">{</span>
+    <span class="c">/* fond rose, (fusionne avec l&#39;image du papier) */</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">beige</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">#</span><span class="nn">recette2</span> <span class="p">{</span>  
+    <span class="c">/* fond beige, (fusionne avec l&#39;image du papier) */</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">pink</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Mais quel est l'intérêt d'utiliser <code>id</code>plutôt que <code>class</code>? À notre niveau, il y en a assez peu. L'intérêt principal dans le cas de notre site de recette en <em>one page</em> est de pouvoir créer des <strong>ancres</strong> dans ma page et ainsi de pouvoir positionner la page au bon endroit quand je clique sur les liens de mon menu.</p>
+<p>Puisqu'un identifiant est unique (qu'il ne peut être présent qu'une seule fois dans chaque page) il me permet de définir de manière univoque un élément particulier de ma page. Et cette caractéristique me permet de <strong>l'adresser</strong>.</p>
+<p>Si je reprends mon menu en HTML, je peux désormais faire le lien avec des partie de ma page. On utilise alors le signe <code>#</code> suivi du nom de l'identifiant souhaité :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#recette1&quot;</span><span class="p">&gt;</span>Recette 1<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#recette2&quot;</span><span class="p">&gt;</span>Recette 2<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Maintenant, au clique sur mes items du menu, le site défile jusqu'à l'endroit voulu. C'est magique !</p>
+<h2 id="recapitulatif">Récapitulatif</h2>
+<p>Si vous avez bien suivi et que vous avez progressivement fait évoluer le code de base que je vous ai fourni au début du chapitre, vous devriez avoir quelque chose qui ressemble à ça :</p>
+<p><strong>HTML</strong> :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Recettes de Cuisine<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;css/styles.css&quot;</span><span class="p">&gt;</span><span class="c">&lt;!--lien avec feuille de style --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+    <span class="c">&lt;!-- Menu - Barre de navigation --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Recette 1<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span><span class="c">&lt;!-- Avec #recette1, on se déplace vers l&#39;élément ayant l&#39;id &quot;recette1&quot; --&gt;</span> 
+            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Recette 2<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span><span class="c">&lt;!-- Avec #recette2, on se déplace vers l&#39;élément ayant l&#39;id &quot;recette2&quot; --&gt;</span> 
+        <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+
+    <span class="c">&lt;!-- Titre - Écran principal --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Mes recettes<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>               
+
+    <span class="c">&lt;!-- Recette 1 - deuxième &quot;page&quot; --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;recette1&quot;</span><span class="p">&gt;</span> 
+        <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Recette 1<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Ingrédients :<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span> 
+            <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>50 cl d&#39;ingrédient 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>1 ingrégient 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>2 cs d&#39;ingrédient 3<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>   
+            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Recette : <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Faites cela.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Faites ceci.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Puis faites cela.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Et enfin faites ceci.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;img/default.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;image recette 1&quot;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+
+    <span class="c">&lt;!-- Recette 2 - troisième page --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;recette2&quot;</span><span class="p">&gt;</span> 
+        <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Recette 2<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Ingrédients :<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span> 
+            <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>50 cl d&#39;ingrédient 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>1 ingrégient 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>2 cs d&#39;ingrédient 3<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>   
+            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Recette : <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Faites cela.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Faites ceci.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Puis faites cela.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Et enfin faites ceci.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;img/default.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;image recette 2&quot;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+
+    <span class="c">&lt;!-- Pied de page --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span> 
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Les infos du pied de page<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>  
+    <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p><strong>CSS</strong> :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">/* Chargement des polices web (Google Font) */</span>
+<span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;https://fonts.googleapis.com/css?family=Dancing+Script|Special+Elite&#39;</span><span class="o">)</span><span class="p">;</span>
+
+<span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span>
+    <span class="c">/*remise à zero, définition de la taille de l&#39;écran, permet de donner des valeurs de référence */</span>
+    <span class="k">margin</span><span class="p">:</span>     <span class="mi">0</span><span class="p">;</span>
+    <span class="k">padding</span><span class="p">:</span>    <span class="mi">0</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span>     <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span>      <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">body</span><span class="p">{</span>
+    <span class="c">/* Cette police est utilisée par défaut sur tout le site (sauf déclaration contraire) */</span>
+    <span class="k">font-family</span><span class="p">:</span> <span class="s1">&#39;Special Elite&#39;</span><span class="p">,</span> <span class="kc">cursive</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/****** MENU ******/</span>
+<span class="nt">nav</span><span class="p">{</span>
+    <span class="c">/* occupe toute la largeur disponible */</span>
+    <span class="k">width</span><span class="p">:</span>     <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+
+    <span class="c">/* style du menu : fond blanc */</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span> <span class="nt">ul</span><span class="p">{</span>
+    <span class="c">/* style de la liste */</span>
+    <span class="k">list-style-type</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span>
+
+    <span class="c">/* utiliser la méthode flexbox */</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">flex-end</span><span class="p">;</span> <span class="c">/* les éléments enfants alignés à droite */</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span> <span class="nt">ul</span> <span class="nt">li</span><span class="p">{</span>
+    <span class="c">/* taille minimale */</span>  
+    <span class="k">min-width</span><span class="p">:</span> <span class="mi">250</span><span class="kt">px</span><span class="p">;</span> 
+
+    <span class="c">/* texte centré dans chaque item de menu */</span>
+    <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span> <span class="nt">a</span><span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+
+    <span class="c">/* style des lien du menu */</span>
+    <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+    <span class="k">color</span><span class="p">:</span> <span class="kc">black</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span> <span class="nt">a</span><span class="p">:</span><span class="nd">hover</span><span class="p">{</span>
+    <span class="c">/* au clic, lien couleur cramoisie */</span>
+    <span class="k">color</span><span class="p">:</span> <span class="kc">crimson</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/****** PREMIER ÉCRAN ******/</span>
+<span class="nt">header</span><span class="p">{</span>
+    <span class="c">/* plein écran */</span>
+    <span class="k">height</span><span class="p">:</span>    <span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span>     <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+
+    <span class="c">/* image de fond */</span>
+    <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="s2">&quot;../img/vichy.jpg&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nt">h1</span><span class="p">{</span>
+    <span class="c">/* police */</span>
+    <span class="k">font-family</span><span class="p">:</span>    <span class="s1">&#39;Dancing Script&#39;</span><span class="p">,</span> <span class="kc">cursive</span><span class="p">;</span>
+    <span class="k">color</span><span class="p">:</span>          <span class="kc">midnightblue</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="p">:</span>      <span class="mi">30</span><span class="kt">pt</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="p">:</span>     <span class="kc">center</span><span class="p">;</span>
+
+    <span class="c">/* taille de l&#39;étiquette */</span>
+    <span class="k">height</span><span class="p">:</span>    <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span>     <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+
+    <span class="c">/* style de l&#39;étiquette */</span>
+    <span class="k">background-color</span><span class="p">:</span>  <span class="kc">ivory</span><span class="p">;</span>    <span class="c">/* un blanc cassé pour le fond*/</span>
+    <span class="k">border</span><span class="p">:</span>            <span class="kc">medium</span> <span class="kc">double</span> <span class="kc">midnightblue</span><span class="p">;</span>  <span class="c">/* un contour double bleu foncé */</span>
+    <span class="k">border-radius</span><span class="p">:</span>     <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>     <span class="c">/* bords arrondis */</span>
+<span class="p">}</span>
+
+<span class="c">/****** TOUTES LES SECTIONS (ÉCRANS DES RECETTES) ******/</span>
+<span class="nt">section</span><span class="p">{</span>
+    <span class="c">/* chaque section en plein écran */</span>
+    <span class="k">height</span><span class="p">:</span>    <span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span>     <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+
+    <span class="c">/* fond papier */</span>
+    <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="s2">&quot;../img/paper.jpg&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c">/* Fonds d&#39;écran des sections (id) */</span> 
+<span class="p">#</span><span class="nn">recette1</span> <span class="p">{</span>
+    <span class="c">/* fond rose, (fusionne avec l&#39;image du papier) */</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">beige</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">#</span><span class="nn">recette2</span> <span class="p">{</span>  
+    <span class="c">/* fond beige, (fusionne avec l&#39;image du papier) */</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">pink</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* fiche recette (élément &lt;article&gt;) */</span>
+<span class="nt">article</span><span class="p">{</span>
+    <span class="c">/* taille : 40% de l&#39;écran mais pas moins de 400px */</span>
+    <span class="k">width</span><span class="p">:</span>          <span class="mi">40</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">min-width</span><span class="p">:</span>      <span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
+
+    <span class="c">/* marges */</span>
+    <span class="k">padding</span><span class="p">:</span>        <span class="mi">20</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+
+    <span class="c">/* style de la fiche */</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+    <span class="k">opacity</span><span class="p">:</span>        <span class="mf">0.9</span><span class="p">;</span>
+    <span class="k">border-radius</span><span class="p">:</span>  <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/* image recette (élément avec class=&quot;imgRecette&quot;) */</span>
+<span class="p">.</span><span class="nc">imgRecette</span><span class="p">{</span>
+    <span class="c">/* taille de l&#39;image : 30% de l&#39;écran x 300px */</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">40</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">min-width</span><span class="p">:</span> <span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
+
+    <span class="c">/* style de l&#39;image : bordure blanche, ombre portée, img inclinée */</span>
+    <span class="k">border</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="kc">solid</span> <span class="kc">white</span><span class="p">;</span>
+    <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span> <span class="mi">0</span><span class="kt">px</span> <span class="mi">10</span><span class="kt">px</span> <span class="kc">grey</span><span class="p">;</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">rotate</span><span class="p">(</span><span class="mi">3</span><span class="kt">deg</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c">/* titres des recettes */</span>
+<span class="nt">h2</span><span class="p">{</span> 
+    <span class="k">font-family</span><span class="p">:</span>    <span class="s1">&#39;Dancing Script&#39;</span><span class="p">,</span> <span class="kc">cursive</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="p">:</span>      <span class="mi">30</span><span class="kt">pt</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="p">:</span>     <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span> 
+
+<span class="c">/* sous-titres : ingrédients et étapes */</span>
+<span class="nt">h3</span><span class="p">{</span> 
+    <span class="k">font-size</span><span class="p">:</span>      <span class="mi">14</span><span class="kt">pt</span><span class="p">;</span>
+    <span class="k">color</span><span class="p">:</span>          <span class="kc">crimson</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/****** PIED DE PAGE ******/</span>
+<span class="nt">footer</span> <span class="p">{</span> 
+    <span class="c">/* taille du pied de page */</span>
+    <span class="k">height</span><span class="p">:</span>         <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+
+    <span class="c">/* style du pied de page */</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#333333</span><span class="p">;</span>  
+
+    <span class="c">/* texte */</span>
+    <span class="k">color</span><span class="p">:</span>          <span class="kc">white</span><span class="p">;</span>  
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<div class="admonition info">
+<p>Vous pouvez télécharger les <a href="https://www.dropbox.com/s/27gdhvu4qis52zl/SiteWeb_recette_sansFlex.zip?dl=0">fichiers sources</a>.</p>
+</div>
+<p>Vous remarquerez que j'ai débuté le CSS par </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span>
+    <span class="k">margin</span><span class="p">:</span>     <span class="mi">0</span><span class="p">;</span>
+    <span class="k">padding</span><span class="p">:</span>    <span class="mi">0</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span>     <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span>      <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>C'est ce qu'on appelle, un <em>reset</em>, une remise à zéro des styles prédéfinis par les navigateurs. Cela permet entre autre de supprimer la marge blanche autour de ma page que la plupart des navigateurs affichent par défaut. Je ne rentrerai pas dans les détails de l'intérêt de ce <em>reset</em> mais il est toujours souhaitable de le mettre. À bon entendeur…</p>
+<h2 id="a-vous-de-jouer">À vous de jouer</h2>
+<p>Il ne manque plus grand chose… La seule chose qu'il manque c'est la gestion du positionnement des éléments dans les différentes parties du site (<code>nav</code>, <code>header</code>, <code>section</code> et <code>footer</code>). </p>
+<p>Et ça, on peut le faire facilement avec la méthode <strong>FlexBox</strong> sans toucher au fichier HTML !</p>
+<div class="admonition hint">
+<p>Dans le CSS, il suffit de spécifier que :</p>
+<ul>
+<li>les éléments dans le conteneur <code>nav</code> sont centrés verticalement.</li>
+<li>les éléments dans le conteneur <code>header</code> sont centrés horizontalement ET verticalement </li>
+<li>les éléments dans les conteneurs <code>section</code>sont centrés verticalement et répartis de manière homogènes sur l'axe horizontal</li>
+<li>les éléments dans le conteneur <code>nav</code> sont centrés verticalement.</li>
+</ul>
+</div>
+<div class="admonition exercice">
+<ul>
+<li>Télécharger les <a href="https://www.dropbox.com/s/27gdhvu4qis52zl/SiteWeb_recette_sansFlex.zip?dl=0">fichiers sources</a> ou reprenez votre code s'il est correct.</li>
+<li>Utilisez la méthode FlexBox pour mettre en page les éléments afin de correspondre au résultat souhaité.</li>
+<li>Modifiez les contenus avec de vraies recettes</li>
+<li>Vous pouvez également ajoutez de nouvelles recettes en ajoutant de nouvelles sections</li>
+</ul>
+</div>
+<p><img alt="Site final" src="../assets/SiteOnePage.jpg" />
+<em class="legend">Site final</em></p>
+<p><strong>Une correction sera donnée la semaine prochaine</strong> </p>
+<div class="admonition question">
+<p class="admonition-title">Question bonus</p>
+<p>Sans modifier le HTML, que dois-je écrire/modifier en CSS pour échanger l'ordre de mes fiches et de mes images. Comment, passer l'image à gauche et la fiche-recette à droite ?</p>
+<p>Réponses par mail. Points bonus à gagner ;)</p>
+</div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Ch05_flexbox/" title="Ch.5 - Mise en page FlexBox" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Précédent
+                </span>
+                Ch.5 - Mise en page FlexBox
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Ch07_ressources/" title="Ch.7 - Quelques ressources" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Suivant
+                </span>
+                Ch.7 - Quelques ressources
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="mailto:clement.borel@u-bordeaux-montainge.fr" target="_blank" rel="noopener" title="envelope" class="md-footer-social__link fa fa-envelope"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.fr.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,6 +1,131 @@
+/* use image for grey color theme 
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,900&display=swap');
+
+[data-md-color-primary='grey'] .md-tabs,
+[data-md-color-primary='grey'] .md-header,
+footer {
+    background-color:darkslateblue;
+}
+.md-footer-nav,
+.md-footer-meta {
+    background: transparent;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Roboto Slab', serif;
+    font-weight:700 !important;
+    color:#546e7a;
+    text-indent: 10px !important;
+    
+}
+*/
+h1{
+    text-transform: uppercase;
+    text-align: center;
+}
+h2{
+    border-bottom: thin solid lightgrey;
+}
+
+h2, h3, h4, h5, h6{
+    transform: translateX(-0.5em);
+}
+
 iframe{
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px
 }
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px !important;
+    padding: 10px 0px;
+}
+.legend{
+    display:block;
+    max-width: 500px !important;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9em;
+    color:grey;
+}
+
+.left{
+    margin-left: 0px;
+    margin-right: auto;
+}
+.hgt{
+    background-color:MOCCASIN;/*POWDERBLUE;*/
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    border-radius:0.2em;
+}
+.center{
+    text-align: center;
+}
+.bordered{
+    border: thin solid silver;
+}
+
+
+/*
+
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Roboto Slab', serif;
+}
+h1{
+    text-align: center;
+}
+
+.md-typeset h2{
+    display: inline-block;
+    color:white;
+    background-color: teal;
+    font-size: 1.5em;
+    padding-left: 1.25em;
+    padding-right: 1.25em;
+    transform: skewY(-1deg);
+}
+
+.md-main{
+    background-color: ghostwhite;
+}
+.md-content{
+    background-color: white;
+    box-shadow: 0px 0px 5px silver;
+    border-radius: 2px;
+}
+
+iframe{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px !important;
+    padding: 10px 0px;
+}
+
+ TRADUCTION TABLE OF CONTENTS 
+label[for="__toc"].md-nav__title{
+    visibility: hidden;
+    position: relative;
+}
+label[for="__toc"].md-nav__title::after{
+    visibility: visible;
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "Table des matières :";
+}
+*/

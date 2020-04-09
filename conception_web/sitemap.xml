@@ -1,35 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://clemb.github.io/infographie_econum/Ch01_rappel/</loc>
-     <lastmod>2020-04-03</lastmod>
+     <lastmod>2020-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://clemb.github.io/infographie_econum/Ch02_structure/</loc>
-     <lastmod>2020-04-03</lastmod>
+     <lastmod>2020-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://clemb.github.io/infographie_econum/Ch03_boite/</loc>
-     <lastmod>2020-04-03</lastmod>
+     <lastmod>2020-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://clemb.github.io/infographie_econum/Ch04_pratique/</loc>
-     <lastmod>2020-04-03</lastmod>
+     <lastmod>2020-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://clemb.github.io/infographie_econum/Ch05_flexbox/</loc>
-     <lastmod>2020-04-03</lastmod>
+     <lastmod>2020-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://clemb.github.io/infographie_econum/Ch06_siteflex/</loc>
-     <lastmod>2020-04-03</lastmod>
+     <lastmod>2020-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://clemb.github.io/infographie_econum/Ch07_ressources/</loc>
-     <lastmod>2020-04-03</lastmod>
+     <loc>https://clemb.github.io/infographie_econum/B1_selecteurs/</loc>
+     <lastmod>2020-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://clemb.github.io/infographie_econum/faq/</loc>
-     <lastmod>2020-04-03</lastmod>
+     <loc>https://clemb.github.io/infographie_econum/B2_bootstrap/</loc>
+     <lastmod>2020-04-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://clemb.github.io/infographie_econum/D1_evaluation/</loc>
+     <lastmod>2020-04-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://clemb.github.io/infographie_econum/A1_ressources/</loc>
+     <lastmod>2020-04-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://clemb.github.io/infographie_econum/A2_faq/</loc>
+     <lastmod>2020-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

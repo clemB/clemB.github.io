@@ -1,0 +1,1046 @@
+
+
+
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Cours d'infographie pour l'atrelier économie du numérique - MMI1">
+      
+      
+        <link rel="canonical" href="https://clemb.github.io/infographie_econum/B1_selecteurs/">
+      
+      
+        <meta name="author" content="Clément Borel">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copier dans le presse-papier">
+      
+        <meta name="lang:clipboard.copied" content="Copié dans le presse-papier">
+      
+        <meta name="lang:search.language" content="fr">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Aucun document trouvé">
+      
+        <meta name="lang:search.result.one" content="1 document trouvé">
+      
+        <meta name="lang:search.result.other" content="# documents trouvés">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Bonus - Les sélecteurs CSS - Cours - Conception Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#les-selecteurs-css" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://clemb.github.io/infographie_econum/" title="Cours - Conception Web" aria-label="Cours - Conception Web" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">home</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Cours - Conception Web
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Bonus - Les sélecteurs CSS
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Taper pour démarrer la recherche
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://clemb.github.io/infographie_econum/" title="Cours - Conception Web" class="md-nav__button md-logo">
+      
+        <i class="md-icon">home</i>
+      
+    </a>
+    Cours - Conception Web
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch01_rappel/" title="Ch.1 - Rappel" class="md-nav__link">
+      Ch.1 - Rappel
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch02_structure/" title="Ch.2 - Structurer votre site" class="md-nav__link">
+      Ch.2 - Structurer votre site
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch03_boite/" title="Ch.3 - Le modèle de boîtes" class="md-nav__link">
+      Ch.3 - Le modèle de boîtes
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch04_pratique/" title="Ch.4 - HTML et CSS en pratique" class="md-nav__link">
+      Ch.4 - HTML et CSS en pratique
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch05_flexbox/" title="Ch.5 - Mise en page FlexBox" class="md-nav__link">
+      Ch.5 - Mise en page FlexBox
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Ch06_siteflex/" title="Ch.6 - FlexBox en pratique" class="md-nav__link">
+      Ch.6 - FlexBox en pratique
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../rien.md" title="" class="md-nav__link">
+      <span class='spacer'>
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Bonus - Les sélecteurs CSS
+      </label>
+    
+    <a href="./" title="Bonus - Les sélecteurs CSS" class="md-nav__link md-nav__link--active">
+      Bonus - Les sélecteurs CSS
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#les-selecteurs-simples" class="md-nav__link">
+    Les sélecteurs simples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-de-type" class="md-nav__link">
+    Les sélecteurs de type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-de-classe" class="md-nav__link">
+    Les sélecteurs de classe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-didentifiant" class="md-nav__link">
+    Les sélecteurs d'identifiant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-selecteur-universel" class="md-nav__link">
+    Le sélecteur universel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-dattribut" class="md-nav__link">
+    Les sélecteurs d'attribut
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-combinateurs" class="md-nav__link">
+    Les combinateurs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-de-voisin-direct" class="md-nav__link">
+    Les sélecteurs de voisin direct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-de-voisins" class="md-nav__link">
+    Les sélecteurs de voisins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-delements-fils" class="md-nav__link">
+    Les sélecteurs d'éléments fils
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-delements-descendants" class="md-nav__link">
+    Les sélecteurs d'éléments descendants
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-pseudo-classes" class="md-nav__link">
+    Les pseudo-classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actions-souris" class="md-nav__link">
+    Actions souris
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relations-parents-enfants" class="md-nav__link">
+    Relations parents-enfants
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-pseudo-elements" class="md-nav__link">
+    Les pseudo-éléments
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour-le-texte" class="md-nav__link">
+    Pour le texte
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pour-lajout-de-contenu" class="md-nav__link">
+    Pour l'ajout de contenu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../B2_bootstrap/" title="Bonus - Le framework Bootstrap" class="md-nav__link">
+      Bonus - Le framework Bootstrap
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../rien.md" title="" class="md-nav__link">
+      <span class='spacer'>
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../D1_evaluation/" title="Évaluation - Travail à rendre" class="md-nav__link">
+      Évaluation - Travail à rendre
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../rien.md" title="" class="md-nav__link">
+      <span class='spacer'>
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../A1_ressources/" title="Quelques ressources" class="md-nav__link">
+      Quelques ressources
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../A2_faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#les-selecteurs-simples" class="md-nav__link">
+    Les sélecteurs simples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-de-type" class="md-nav__link">
+    Les sélecteurs de type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-de-classe" class="md-nav__link">
+    Les sélecteurs de classe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-didentifiant" class="md-nav__link">
+    Les sélecteurs d'identifiant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-selecteur-universel" class="md-nav__link">
+    Le sélecteur universel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-dattribut" class="md-nav__link">
+    Les sélecteurs d'attribut
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-combinateurs" class="md-nav__link">
+    Les combinateurs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-de-voisin-direct" class="md-nav__link">
+    Les sélecteurs de voisin direct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-de-voisins" class="md-nav__link">
+    Les sélecteurs de voisins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-delements-fils" class="md-nav__link">
+    Les sélecteurs d'éléments fils
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-selecteurs-delements-descendants" class="md-nav__link">
+    Les sélecteurs d'éléments descendants
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-pseudo-classes" class="md-nav__link">
+    Les pseudo-classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actions-souris" class="md-nav__link">
+    Actions souris
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relations-parents-enfants" class="md-nav__link">
+    Relations parents-enfants
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-pseudo-elements" class="md-nav__link">
+    Les pseudo-éléments
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour-le-texte" class="md-nav__link">
+    Pour le texte
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pour-lajout-de-contenu" class="md-nav__link">
+    Pour l'ajout de contenu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="les-selecteurs-css">Les sélecteurs CSS</h1>
+<p>Jusqu'à présent, nous avons vu un certain nombre de sélecteurs CSS :</p>
+<ul>
+<li>les sélecteurs de type :<code>nomElement { }</code></li>
+<li>les sélecteurs de classe : <code>.nomClasse{ }</code></li>
+<li>les sélecteurs d'identifiant : <code>#valeurId { }</code></li>
+</ul>
+<p>Les attentifs auront peut être remarqué dans un de mes codes la possibilité de mutualiser les déclarations CSS pour plusieurs sélecteurs en les séparant par des virgules :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">/* Les titres de tout niveau en police Arial */</span>
+<span class="nt">h1</span><span class="o">,</span><span class="nt">h2</span><span class="o">,</span><span class="nt">h3</span><span class="o">,</span><span class="nt">h4</span><span class="o">,</span><span class="nt">h5</span><span class="o">,</span><span class="nt">h6</span><span class="p">{</span>
+    <span class="k">font-family</span><span class="p">:</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">/*</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Ces sélecteurs sont suffisants pour la plupart de nos besoins. L'utilisation des classes et des id, permet d'ailleurs de solutionner de nombreux problèmes. Il existe cependant d'autres types de sélecteurs CSS. C'est que nous allons voir dans ce chapitre.</p>
+<h2 id="les-selecteurs-simples">Les sélecteurs simples</h2>
+<h3 id="les-selecteurs-de-type">Les sélecteurs de type</h3>
+<p>Ce sélecteur simple permet de cibler les éléments qui correspondent au nom indiqué.<br />
+<strong>Syntaxe :</strong><code>nomElement</code><br />
+<strong>Exemple :</strong><code>p</code>permettra de cibler n'importe quel élément <code>&lt;p&gt;</code></p>
+<h3 id="les-selecteurs-de-classe">Les sélecteurs de classe</h3>
+<p>Ce sélecteur simple permet de cibler les éléments en fonction de la valeur de leur attribut<code>class</code>.<br />
+<strong>Syntaxe :</strong><code>.nomClasse</code><br />
+<strong>Exemple :</strong><code>.btn</code>permettra de cibler n'importe quel élément qui possède la classe<code>btn</code>(définie avec un attribut<code>class="btn"</code>).</p>
+<h3 id="les-selecteurs-didentifiant">Les sélecteurs d'identifiant</h3>
+<p>Ce sélecteur simple permet de cibler un élément d'un document en fonction de la valeur de son attribut<code>id</code>. Dans un document, il ne doit y avoir qu'un seul élément pour un identifiant donné.<br />
+<strong>Syntaxe :</strong><code>#valeurId</code><br />
+<strong>Exemple :</strong><code>#toc</code>permettra de cibler l'élément qui possède l'identifiant<code>toc</code>(défini avec un attribut<code>id="toc"</code>).</p>
+<h3 id="le-selecteur-universel">Le sélecteur universel</h3>
+<p>Ce sélecteur permet de cibler tous les éléments d'un document. 
+<strong>Syntaxe :</strong><code>*</code>
+<strong>Exemple :</strong><code>*</code>permettra de cibler tous les éléments du document.</p>
+<h3 id="les-selecteurs-dattribut">Les sélecteurs d'attribut</h3>
+<p>Ce sélecteur simple permet de cibler des éléments d'un document en fonction de la valeur d'un de leurs attributs.<br />
+<strong>Syntaxe :</strong><code>[attr]</code> ou <code>[attr=valeur]</code> 
+<strong>Exemple :</strong><code>[autoplay]</code>permettra de cibler tous les éléments qui possède l'attribut<code>autoplay</code>défini (quelle que soit sa valeur). <code>[target="\_blank"]</code> permettra de cibler tous les éléments qui possède l'attribut<code>target</code> avec la valeur <code>"\_blank"</code> </p>
+<h2 id="les-combinateurs">Les combinateurs</h2>
+<h3 id="les-selecteurs-de-voisin-direct">Les sélecteurs de voisin direct</h3>
+<p>Le combinateur<code>'+'</code>permet de sélectionner les nœuds qui suivent immédiatement un élément donné.<br />
+<strong>Syntaxe :</strong><code>A+B</code><br />
+<strong>Exemple :</strong> <code>h1 + p</code> permettra de cibler n'importe quel élément <code>&lt;p&gt;</code>qui suit immédiatement un élément <code>&lt;h1&gt;</code>.</p>
+<h3 id="les-selecteurs-de-voisins">Les sélecteurs de voisins</h3>
+<p>Le combinateur<code>'~'</code>permet de sélectionner les nœuds qui suivent un élément et qui ont le même parent.<br />
+<strong>Syntaxe :</strong><code>A~B</code><br />
+<strong>Exemple :</strong><code>p ~ a</code>permettra de cibler les éléments <code>&lt;a&gt;</code> qui suivent (immédiatement ou non) un élément <code>&lt;p&gt;</code> </p>
+<h3 id="les-selecteurs-delements-fils">Les sélecteurs d'éléments fils</h3>
+<p>Le combinateur<code>'&gt;'</code>permet de sélectionner les nœuds qui sont des fils directs d'un élément donné.<br />
+<strong>Syntaxe :</strong><code>A&gt;B</code><br />
+<strong>Exemple :</strong><code>ul &gt; li</code>permettra de cibler tous les éléments <code>&lt;li&gt;</code> qui sont directement situés sous un élément <code>&lt;ul&gt;</code></p>
+<h3 id="les-selecteurs-delements-descendants">Les sélecteurs d'éléments descendants</h3>
+<p>Le combinateur (espace) permet de sélectionner les éléments qui sont des descendants (pas nécessairement des fils directs) d'un élément donné.<br />
+<strong>Syntaxe :</strong><code>A B</code><br />
+<strong>Exemple :</strong><code>footer p</code>permettra de cibler n'importe quel élément <code>&lt;p&gt;</code>situé à l'intérieur d'un élément <code>&lt;footer&gt;</code></p>
+<h2 id="les-pseudo-classes">Les pseudo-classes</h2>
+<p>Les pseudo-classes vont nous permettre de cibler des éléments HTML en fonction de leur état, ou plus exactement d’appliquer des règles CSS à des éléments HTML uniquement dans un certain contexte (lorsqu’ils sont dans un certain état).</p>
+<p>Nous en avons déjà vu ; rappelez-vous lorsque l'on voulait modifier l'aspect d'un lien au survol de la souris et au clic.</p>
+<p>Pour utiliser une pseudo classe en CSS, il faudra commencer avec un sélecteur "classique" (voir section précédente) qui sera suivi du caractère<code>:</code> puis du nom de la pseudo-classe ou de l’état à appliquer.</p>
+<p>Par exemple, on va pouvoir changer la couleur de fond des  éléments<code>a</code>d’une page en rouge lors du survol du curseur de la souris  en écrivant en CSS :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">a</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Il existe beaucoup de speudo-classes en CSS. Je vais détailler ci-dessous les plus courantes mais je vous encourage à jeter un oeil à <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes">la liste complète</a>.</p>
+<h3 id="actions-souris">Actions souris</h3>
+<p>La pseudo-classe <strong><code>:hover</code></strong> permet de spécifier l'apparence d'un élément au moment où l'utilisateur le survole avec le pointeur, sans nécessairement l'activer.
+La pseudo-class <strong><code>:active</code></strong> permet de spécifier l'apparence d'un élément au moment où l'utilisateur clique dessus.</p>
+<p>Il existe d'autres pseudo-classes : <code>:link</code>, <code>:visited</code>, <code>focus</code>... Je laisse le loin à ceux qui souhaite aller plus loin de les découvrir par vous même.</p>
+<p>En pratique, </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn&quot;</span><span class="p">&gt;</span>Cliquez ici<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">a</span><span class="p">.</span><span class="nc">btn</span> <span class="p">{</span> <span class="c">/* Affichage par défaut */</span>
+    <span class="k">color</span><span class="p">:</span><span class="mh">#FFFFFF</span><span class="p">;</span> <span class="c">/*Texte blanc*/</span>
+    <span class="k">background-color</span> <span class="p">:</span> <span class="kc">blue</span><span class="p">;</span> <span class="c">/*Fond bleu*/</span>
+    <span class="k">padding</span> <span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span> <span class="c">/*Marge intérieure de 10px*/</span>
+<span class="p">}</span>
+<span class="nt">a</span><span class="p">.</span><span class="nc">btn</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span> <span class="c">/* Au survol  */</span>
+    <span class="k">background-color</span> <span class="p">:</span> <span class="kc">red</span><span class="p">;</span> <span class="c">/*Fond bleu*/</span>
+<span class="p">}</span>
+<span class="nt">a</span><span class="p">.</span><span class="nc">btn</span><span class="p">:</span><span class="nd">active</span> <span class="p">{</span> <span class="c">/* Au clic */</span>
+    <span class="k">color</span><span class="p">:</span><span class="kc">red</span><span class="p">;</span> <span class="c">/*Texte rouge */</span>
+    <span class="k">background-color</span> <span class="p">:</span> <span class="mh">#FFFFFF</span><span class="p">;</span> <span class="c">/*Fond blanc*/</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<h3 id="relations-parents-enfants">Relations parents-enfants</h3>
+<p>La pseudo-classe <strong><code>:first-child</code></strong> permet de cibler un élément qui est le premier élément fils par rapport à son élément parent.</p>
+<p>Très pratique pour sélectionner par exemple le premier élément d'une liste :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">/* Cible n&#39;importe quel élément &lt;li&gt; /*</span>
+<span class="c">/* qui est le premier fils de son élément parent */</span>
+<span class="nt">li</span><span class="p">:</span><span class="nd">first-child</span> <span class="p">{</span>
+    <span class="k">color</span><span class="p">:</span> <span class="kc">lime</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>De même, la pseudo-classe <strong><code>:last-child</code></strong> permet de cibler un élément qui est le dernier élément fils par rapport à son élément parent.</p>
+<p>Très pratique pour sélectionner le dernier élément d'une liste :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">/* Cible n&#39;importe quel élément &lt;li&gt; */</span>
+<span class="c">/* qui est le dernier fils de son élément parent */</span>
+<span class="nt">li</span><span class="p">:</span><span class="nd">last-child</span> <span class="p">{</span>
+    <span class="k">color</span><span class="p">:</span> <span class="kc">teal</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Dans la même lignée, la pseudo-classe <strong><code>:nth-child(_n_)</code></strong> permet de cibler le <em>n<sup>ème</sup></em> élément fils (quel qu'il soit) de l'élément ciblé.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">/* Cible le troisième élément enfant de n&#39;importe quel élément &lt;ol&gt; */</span>
+<span class="nt">ol</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">3</span><span class="o">)</span> <span class="p">{</span>
+    <span class="k">color</span><span class="p">:</span> <span class="kc">ghostwhite</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<div class="admonition info">
+<p>Pour aller plus loin, retrouver <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes">la liste complète</a> des pseudo-classes CSS.</p>
+</div>
+<h2 id="les-pseudo-elements">Les pseudo-éléments</h2>
+<p>Les <strong>pseudo-éléments</strong> représentent des entités du document qui ne sont pas explicitement décrites en HTML.</p>
+<h3 id="pour-le-texte">Pour le texte</h3>
+<p><strong><code>::first-line</code></strong> permettra de cibler la première ligne de chacun des éléments ciblés.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">/* Cible la première ligne d&#39;un élément &lt;p&gt; */</span>
+<span class="nt">p</span><span class="p">::</span><span class="nd">first-line</span> <span class="p">{</span>
+    <span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p><strong><code>::first-letter</code></strong> permettra de cibler la première lettre de chacun des éléments ciblés. Très pratique pour faire des lettrines.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">/* Sélectionne la première lettre d&#39;un élément &lt;p&gt; */</span>
+<span class="nt">p</span><span class="p">::</span><span class="nd">first-letter</span> <span class="p">{</span>
+    <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="p">:</span> <span class="mi">130</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<h3 id="pour-lajout-de-contenu">Pour l'ajout de contenu</h3>
+<p>Nous terminerons par les pseudo-éléments <strong><code>::before</code></strong> et <strong><code>::afer</code></strong> qui permettent de créer des éléments à la volée. Il sont souvent utilisés pour ajouter du contenu cosmétique à un élément, en utilisant la propriété CSS <code>content</code>.</p>
+<p><strong><code>::before</code></strong> crée un pseudo-élément qui sera le premier enfant de l'élément ciblé. Généralement utilisé pour ajouter du contenu esthétique à un élément via la propriété CSS <code>content</code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">/* On ajoute une étoile avant les titres de niveau 2*/</span>
+<span class="nt">h2</span><span class="p">::</span><span class="nd">before</span> <span class="p">{</span>
+    <span class="k">content</span><span class="p">:</span> <span class="s2">&quot;✭&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>En CSS, <strong><code>::after</code></strong> crée un pseudo-élément qui sera le dernier enfant de l'élément sélectionné. La propriété <code>content</code> permet d'ajouter du texte ou des symboles.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">/* Ajoute une flèche après les liens */</span>
+<span class="nt">a</span><span class="p">::</span><span class="nd">after</span> <span class="p">{</span>
+    <span class="k">content</span><span class="p">:</span> <span class="s2">&quot;→&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<div class="admonition info">
+<p>Pour aller plus loin, retrouver la <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-%C3%A9l%C3%A9ments">liste complète</a> des pseudo-éléments CSS.</p>
+</div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Ch06_siteflex/" title="Ch.6 - FlexBox en pratique" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Précédent
+                </span>
+                Ch.6 - FlexBox en pratique
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../B2_bootstrap/" title="Bonus - Le framework Bootstrap" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Suivant
+                </span>
+                Bonus - Le framework Bootstrap
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="mailto:clement.borel@u-bordeaux-montainge.fr" target="_blank" rel="noopener" title="envelope" class="md-footer-social__link fa fa-envelope"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.fr.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

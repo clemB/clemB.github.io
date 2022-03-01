@@ -5,7 +5,7 @@ const dataUrl = "https://opensheet.elk.sh/1eT4jfPbo-h-0p3I4btQZAKYgD4YctEBU0hNlb
 var d;
 var filter = [];
 var filtered_data = [];
-var activeVue = "list";
+var activeVue = "grid";
 
 fetch(
   /*"https://opensheet.elk.sh/1eT4jfPbo-h-0p3I4btQZAKYgD4YctEBU0hNlbSQ-feU/INO"*/

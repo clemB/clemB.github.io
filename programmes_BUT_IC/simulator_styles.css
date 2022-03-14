@@ -1,0 +1,116 @@
+:root{
+    --color-spe: hsl(234, 12%, 34%);;
+    --color-com: #e0e0e0;
+
+    --color-c1 : hsl(0, 78%, 90%);
+    --color-c2 : hsl(24, 78%, 90%);
+    --color-c3 : hsl(49, 97%, 90%);
+    --color-c4 : hsl(180, 62%, 90%);
+    --color-c5 : hsl(212, 86%, 90%);
+    --color-c6 : hsl(229, 6%, 90%);
+
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --green : hsl(88, 47%, 52%);
+    --varyDarkBlue: hsl(234, 12%, 34%);
+    --grayishBlue: hsl(229, 6%, 66%);
+    --veryLightGray: hsl(0, 0%, 98%);
+
+    --weight1: 200;
+    --weight2: 400;
+    --weight3: 600;
+
+    font-size: 0.9rem;
+}
+table, input, input.form-control{
+    font-size:0.9rem;
+  }
+table{
+border-collapse: separate !important;
+}
+
+td{
+    padding: 1em;
+}
+td>div>input{
+    margin-bottom: 0.2em;
+}
+
+td.c1{
+    background-color: var(--color-c1);
+}
+td.c2{
+    background-color: var(--color-c2);
+}
+td.c3{
+    background-color: var(--color-c3);
+}
+td.c4{
+    background-color: var(--color-c4);
+}
+td.c5{
+    background-color: var(--color-c5);
+}
+td.c6{
+    background-color: var(--color-c6);
+}
+
+input[type=number].form-control{
+    background-color: rgba(255,255,255,0.5);
+    text-align: center;
+}
+
+.outline{
+    border: thin solid currentColor;
+    border-radius: 0.2em;
+    padding-inline: 0.2em;
+    padding-block: 0.1em;
+    font-weight: bold;
+}
+
+.bd-callout {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #e9ecef;
+    border-left-width: 0.25rem;
+    border-radius: 0.25rem;
+
+    border-left-color: #f0ad4e;
+}
+
+td>p{
+    font-weight: bold;
+    text-align: right;
+    margin-right: 0.5em;
+    margin-bottom: 0;
+}
+td.comp-invalid {
+    outline: 0.2em solid var(--red);
+    outline-offset: -0.5em;
+}
+.comp-valid {
+    outline: 0.2em solid var(--green);
+    outline-offset: -0.5em;
+}
+
+td.comp-valid p {
+    color: var(--green);
+}
+td.comp-invalid p{
+    color: var(--red);
+}
+
+
+/* .comp-valid::before {
+    content:'✓'; 
+    font-weight: bold;
+    text-align:right;
+    color: green;
+    text-align: center;
+    position: relative;
+    left:7em;
+} */
+

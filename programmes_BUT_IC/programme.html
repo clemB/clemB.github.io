@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>PN BUT Info-Com</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+		/>
+		<link rel="stylesheet" href="but_styles.css" />
+	</head>
+	<body>
+		<header class="bg-parcours">
+			<div class="container d-flex align-content-center">
+				<h2 class="fw-bold me-4">  
+          <a href="index.html" class="link-light"><i class="bi bi-mortarboard-fill fs-2 me-2 lh-2"></i>       
+					BUT INFO-COM </a>
+				</h2>
+					<div class="btn-group">
+						<button type="button" id="current_page" class="btn btn-outline-light btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+							Communication des Organisations
+						</button>
+						<ul class="dropdown-menu">
+						  <li><a class="dropdown-item" href="?parcours=COM" id="btn_com">Communication des Organisations</a></li>
+						  <li><a class="dropdown-item" href="?parcours=INO" id="btn_ino">Information Numérique dans les Organisations</a></li>
+						  <li><a class="dropdown-item" href="?parcours=JOU" id="btn_jou">Journalisme</a></li>
+						  <li><a class="dropdown-item" href="?parcours=MLP" id="btn_mlp">Métiers du Livre et du Patrimoine</a></li>
+						  <li><a class="dropdown-item" href="?parcours=PUB" id="btn_pub">Publicité</a></li>
+						</ul>
+					  </div>
+				</h2>
+			</div>
+		</header>
+
+		<div class="container d-flex">
+			<aside>
+				<form id="filter-options">
+					<!-- SEMESTRE -->
+					<div>
+						<label class="lead mb-2">Semestres :</label>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_s1"
+								checked
+							/>
+							<label class="form-check-label" for="s_s1">S1</label>
+						</div>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_s2"
+								checked
+							/>
+							<label class="form-check-label" for="s_s2">S2</label>
+						</div>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_s3"
+								checked
+							/>
+							<label class="form-check-label" for="s_s3">S3</label>
+						</div>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_s4"
+								checked
+							/>
+							<label class="form-check-label" for="s_s4">S4</label>
+						</div>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_S5"
+								checked
+							/>
+							<label class="form-check-label" for="s_s5">S5</label>
+						</div>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_s6"
+								checked
+							/>
+							<label class="form-check-label" for="s_s6">S6</label>
+						</div>
+					</div>
+					
+					<!-- TYPE -->
+					<div>
+						<label class="lead mb-2">Types :</label>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_ressource"
+								checked
+							/>
+							<label class="form-check-label" for="s_ressource">Ressource</label>
+						</div>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_sae"
+								checked
+							/>
+							<label class="form-check-label" for="s_sae">SAÉ</label>
+						</div>
+					</div>
+					
+					<!-- COMPETENCES -->
+					<div>
+						<label class="lead mb-2">Compétences :</label>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_com"
+								checked
+							/>
+							<label class="form-check-label" for="s_com">Communes</label>
+						</div>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_spe"
+								checked
+							/>
+							<label class="form-check-label" for="s_spe">Spécifiques</label>
+						</div>
+					</div>
+
+					
+					<!-- PRECONISATION 
+					<div class="preco">
+						<label class="lead mb-2">Préconisations :</label>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_coef"
+								checked
+							/>
+							<label class="form-check-label" for="s_coef">Coef.</label>
+						</div>
+						<div class="form-check form-switch">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								role="switch"
+								id="s_adpt"
+							/>
+							<label class="form-check-label" for="s_adpt">Adapt. locale</label>
+						</div>
+					</div>
+					
+					<!-- DOWNLOAD 
+					<label class="form-check-label" for="btn_download">Télécharger le PN</label>
+					<a href="#" id="btn_download" class="btn btn-secondary btn-sm">format CSV</a>
+					
+					-->
+
+				</form>
+				
+			</aside>
+			<main>
+				<div class="btn-toolbar justify-content-end" role="toolbar">
+					<!-- TRI -->
+					<label class="lead m-2">Tri par</label>
+
+						<div
+							class="btn-group m-2 btn-group-sm"
+							role="group"
+							aria-label="Toggle button group to change display order"
+						>
+							<input
+								type="radio"
+								class="btn-check"
+								name="sort_buttons"
+								id="sort_sem"
+								autocomplete="off"
+								checked
+							/>
+							<label class="btn btn-outline-secondary" for="sort_sem">
+                Semestre
+              </label>
+
+							<input
+								type="radio"
+								class="btn-check"
+								name="sort_buttons"
+								id="sort_type"
+								autocomplete="off"
+							/>
+							<label class="btn btn-outline-secondary" for="sort_type">
+                Type
+							</label>
+
+              <input
+								type="radio"
+								class="btn-check"
+								name="sort_buttons"
+								id="sort_comp"
+								autocomplete="off"
+							/>
+							<label class="btn btn-outline-secondary" for="sort_comp">
+                Compétence
+							</label>
+						</div>
+
+					<!-- AFFICHAGE -->
+					<label class="lead m-2 ps-5">Affichage</label>
+          
+					<div
+						class="btn-group m-2 btn-group-sm"
+						role="group"
+						aria-label="display buttons"
+					>
+							<input
+								type="radio"
+								class="btn-check"
+								name="display_buttons"
+								id="btn_grid"
+								autocomplete="off"
+							/>
+							<label class="btn btn-outline-secondary" for="btn_grid">
+								<i class="bi bi-grid-3x3-gap-fill"></i>
+							</label>
+
+							<input
+								type="radio"
+								class="btn-check"
+								name="display_buttons"
+								id="btn_list"
+								autocomplete="off"
+								checked
+							/>
+							<label class="btn btn-outline-secondary" for="btn_list">
+                <i class="bi bi-list"></i>
+							</label>
+						</div>
+
+          
+				</div>
+				<!-- <nav>
+            <button type="button" class="btn btn-danger">ComOr</button>
+            <button type="button" class="btn btn-info">InfoNum</button>
+            <button type="button" class="btn btn-warning">Journalisme</button>
+            <button type="button" class="btn btn-success">PLM</button>
+            <button type="button" class="btn btn-secondary">Pub</button>
+        </nav> -->
+				<section class="gridish sm" id="dataContainer"></section>
+			</main>
+		</div>
+
+
+    <!-- MODAL -->
+    <div class="modal" tabindex="-1" id="my-modal">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content px-3">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h5 class="">Description</h5>
+            <p id="modal-desc">Description</p>
+            <hr/>
+            <h5 class="">Mots-clés</h5>
+            <p id="modal-kw">Mots-clés</p>
+            <hr/>
+            <p id="modal-h">Heures</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+	</body>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"
+	></script>
+	<script src="but_script.js"></script>
+</html>

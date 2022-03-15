@@ -11,6 +11,9 @@
   --grayishBlue: hsl(229, 6%, 66%);
   --veryLightGray: hsl(0, 0%, 98%);
 
+  --com-h : 0;
+  --com-s : 78%;
+  --com-l: 62%;
   --com-color :hsl(0, 78%, 62%);
   --ino-color :hsl(180, 62%, 55%);
   --jou-color :hsl(322, 47%, 38%);
@@ -38,17 +41,22 @@ header {
 div.content-flex {
   display: flex;
 }
+
 aside {
-  min-width: 200px;
   padding: 1rem;
+  flex:1
 }
+main {
+  flex:7;
+}
+
+/* FORMULAIRE */
 form > div {
   padding: 0.4rem;
-}
-form > div {
   border-bottom:thin solid lightgray;
   padding-inline: 0.4rem;
   padding-bottom: 1rem;
+  flex: 1 1;
 }
 
 form > div > div {
@@ -70,9 +78,7 @@ form > div.preco > div{
   /* border-block: thin solid grey; */
 }
 
-main {
-  width: -webkit-fill-available;
-}
+
 section {
   padding: 1rem;
   display: flex;
@@ -353,6 +359,9 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
   background-color: var(--color-preco);
 }
 
+.badge{
+  height: fit-content;
+}
 .badge + .badge{
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;

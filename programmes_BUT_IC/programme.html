@@ -19,7 +19,7 @@
 	</head>
 	<body>
 		<header class="bg-parcours">
-			<div class="container d-flex align-content-center">
+			<div class="container d-flex flex-wrap align-content-center">
 				<h2 class="fw-bold me-4">  
           <a href="index.html" class="link-light"><i class="bi bi-mortarboard-fill fs-2 me-2 lh-2"></i>       
 					BUT INFO-COM </a>
@@ -40,9 +40,9 @@
 			</div>
 		</header>
 
-		<div class="container d-flex">
-			<aside>
-				<form id="filter-options">
+		<div class="container d-flex flex-wrap">
+			<aside id="filter-panel">
+				<form id="filter-options" class="d-flex flex-wrap">
 					<!-- SEMESTRE -->
 					<div>
 						<label class="lead mb-2">Semestres :</label>
@@ -192,52 +192,48 @@
 				</form>
 				
 			</aside>
-			<main>
-				<div class="btn-toolbar justify-content-end" role="toolbar">
+			<main id="main-panel">
+				<div class="btn-toolbar justify-content-end d-flex" role="toolbar">
+					<div>
 					<!-- TRI -->
 					<label class="lead m-2">Tri par</label>
+					<div
+						class="btn-group m-2 btn-group-sm"
+						role="group"
+						aria-label="Toggle button group to change display order"
+					>
+						<input
+							type="radio"
+							class="btn-check"
+							name="sort_buttons"
+							id="sort_sem"
+							autocomplete="off"
+							checked
+						/>
+						<label class="btn btn-outline-secondary" for="sort_sem">Semestre</label>
 
-						<div
-							class="btn-group m-2 btn-group-sm"
-							role="group"
-							aria-label="Toggle button group to change display order"
-						>
-							<input
-								type="radio"
-								class="btn-check"
-								name="sort_buttons"
-								id="sort_sem"
-								autocomplete="off"
-								checked
-							/>
-							<label class="btn btn-outline-secondary" for="sort_sem">
-                Semestre
-              </label>
+						<input
+							type="radio"
+							class="btn-check"
+							name="sort_buttons"
+							id="sort_type"
+							autocomplete="off"
+						/>
+						<label class="btn btn-outline-secondary" for="sort_type">Type</label>
 
-							<input
-								type="radio"
-								class="btn-check"
-								name="sort_buttons"
-								id="sort_type"
-								autocomplete="off"
-							/>
-							<label class="btn btn-outline-secondary" for="sort_type">
-                Type
-							</label>
-
-              <input
-								type="radio"
-								class="btn-check"
-								name="sort_buttons"
-								id="sort_comp"
-								autocomplete="off"
-							/>
-							<label class="btn btn-outline-secondary" for="sort_comp">
-                Compétence
-							</label>
-						</div>
+						<input
+							type="radio"
+							class="btn-check"
+							name="sort_buttons"
+							id="sort_comp"
+							autocomplete="off"
+						/>
+						<label class="btn btn-outline-secondary" for="sort_comp">Compétence</label>
+					</div>
+					</div>
 
 					<!-- AFFICHAGE -->
+					<div>
 					<label class="lead m-2 ps-5">Affichage</label>
           
 					<div
@@ -265,9 +261,10 @@
 								checked
 							/>
 							<label class="btn btn-outline-secondary" for="btn_list">
-                <i class="bi bi-list"></i>
+                				<i class="bi bi-list"></i>
 							</label>
 						</div>
+					</div>
 
           
 				</div>

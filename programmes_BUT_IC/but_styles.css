@@ -9,11 +9,8 @@
   --blue: hsl(212, 86%, 64%);
   --veryDarkBlue: hsl(234, 12%, 34%);
   --grayishBlue: hsl(229, 6%, 66%);
-  --veryLightGray: hsl(0, 0%, 98%);
+  --veryLightGray: hsl(0, 6%, 80%);
 
-  --com-h : 0;
-  --com-s : 78%;
-  --com-l: 62%;
   --com-color :hsl(0, 78%, 62%);
   --ino-color :hsl(180, 62%, 55%);
   --jou-color :hsl(322, 47%, 38%);
@@ -26,18 +23,19 @@
 
   font-size: 0.9rem;
 }
-header h2 {
-  font-size: 18pt;
-}
-header h2>a{
-text-decoration: none;
-}
 header {
   color: white;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
 }
+header h2 {
+  font-size: 18pt;
+}
+header h2>a{
+  text-decoration: none;
+}
+
 div.content-flex {
   display: flex;
 }
@@ -64,9 +62,7 @@ form > div > div {
   /* outline:thin solid red; */
 }
 form > div.preco {
-  margin-inline: 0rem;
-  margin-block:2rem;
-  padding-block:1rem;
+  margin: 2rem 0rem;
   border-radius: 0.2rem;
 }
 form > div.preco > div{
@@ -380,4 +376,23 @@ tbody tr:hover td, tbody tr:hover th {
 }
 .dropdown-item:focus{
   background-color: var(--color-spe);
+}
+
+.t-hover>tbody>tr:not(.spacer):hover {
+  background-color: #dddddd;
+}
+tr.spacer{
+  height: 3rem;
+}
+
+footer{
+  margin-top: 4rem;
+  padding: 1rem;
+  background-color: var(--color-com);
+  font-size: smaller;
+  color: var(--grayishBlue);
+  /* box-shadow: inset 0 .1em .2em var(--grayishBlue); */
+}
+footer>*{
+  margin: 0;
 }

@@ -51,7 +51,8 @@ function filterData() {
       filtered_data.push(d[i]);
     }
   }
-
+  filtered_data = sort_by_key(filtered_data, "competence");
+  // filtered_data = sort_by_key(filtered_data, "type");
   filtered_data = sort_by_key(filtered_data, "semestre"); /* default order */
   displayData();
 }
@@ -136,7 +137,7 @@ function displayList() {
   mainContainer.innerHTML = "";
 
   var table = document.createElement("table");
-  table.className = "table table-sm table-hover";
+  table.className = "table table-sm t-hover";
   table.innerHTML =
     "<thead><tr><th>Sem.</th><th>Libellé</th><th class='text-center'>h. form.</th><th class='text-center'>dont TP</th><th class='text-center'>h. projet</th></tr></thead>";
   var tbody = document.createElement("tbody");
@@ -190,6 +191,15 @@ function displayList() {
     tr.innerHTML = tr_content;
 
     tbody.appendChild(tr);
+
+    if(i<filtered_data.length-1){
+      if(filtered_data[i+1].semestre != filtered_data[i].semestre){
+        var tr_empty = document.createElement("tr");
+        tr_empty.innerHTML = '<td colspan="5"></td>';
+        tr_empty.classList.add("spacer");
+        tbody.appendChild(tr_empty);
+      }
+    }
   }
 
   table.appendChild(tbody);

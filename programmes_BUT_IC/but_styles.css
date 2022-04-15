@@ -1,7 +1,7 @@
 :root {
   --color-spe: hsl(234, 12%, 34%);
   --color-com: #e0e0e0;
-  --color-preco: hsl(34, 97%, 90%);
+  --color-al: hsl(34, 97%, 90%);
 
   --red: hsl(0, 78%, 62%);
   --cyan: hsl(180, 62%, 55%);
@@ -16,6 +16,13 @@
   --jou-color :hsl(322, 47%, 38%);
   --mlp-color :hsl(212, 86%, 64%);
   --pub-color :hsl(34, 97%, 64%);
+
+  --clr-ue1 :hsl(0, 78%, 62%);
+  --clr-ue2 :hsl(18, 89%, 66%);
+  --clr-ue3 :hsl(34, 97%, 64%);
+  --clr-ue4 :hsl(143, 62%, 55%);
+  --clr-ue5 :hsl(212, 86%, 64%);
+  --clr-ue6 :hsl(322, 47%, 38%);
 
   --weight1: 200;
   --weight2: 400;
@@ -96,6 +103,9 @@ article.spe{
 article.com{
   border-top: 3px solid var(--color-com);
 }
+article.v_al{
+  background-color: var(--color-al);
+}
 
 article:hover {
   transform: scale(1.02);
@@ -122,6 +132,11 @@ tr.spe{
 tr.com{
   background-color: whitesmoke;
   border-left: thick solid var(--color-com);
+}
+
+tr.v_al{
+  background-color: var(--color-al);
+  border-left: thick solid var(--color-al);
 }
 /* tr.spe.sae {
   background-color: var(--color-spe);
@@ -194,6 +209,17 @@ section.index > * {
   margin-bottom: .2rem;
 }
 
+.modal-body p{
+  margin-bottom: .8em;;
+}
+.modal-body li p{
+  margin-bottom: .4em;;
+}
+.modal-body li p+p{
+  /* to fix list markdown issue */
+  transform: translateX(-2em);
+  margin-top: 0.8em;
+}
 
 abbr.com {
   color: var(--com-color);
@@ -352,7 +378,8 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
 }
 
 .preco{
-  background-color: var(--color-preco);
+  /* background-color: var(--color-al); */
+  color: var(--color-spe);
 }
 
 .badge{
@@ -366,6 +393,42 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 }
+
+.ue{
+  font-size:smaller;
+  display: inline-block;
+  font-size: x-small;
+  font-weight: bold;
+  background-color: var(--grayishBlue);
+  color: white;
+  border-radius:.2em;
+  text-align: center;
+  padding-left: .5em;
+  padding-right: .5em;
+  padding-top: .2em;
+  padding-bottom: .2em;
+}
+.ue:not(:last-child){
+  margin-right: 0.2em;
+}
+.ue-1{
+ background-color: var(--clr-ue1);
+}
+.ue-2{
+  background-color:  var(--clr-ue2);
+ }
+ .ue-3{
+  background-color:  var(--clr-ue3);
+ }
+ .ue-4{
+  background-color:  var(--clr-ue4);
+ }
+ .ue-5{
+  background-color:  var(--clr-ue5);
+ }
+ .ue-6{
+  background-color:  var(--clr-ue6);
+ }
 /*
 tbody tr:hover td, tbody tr:hover th {
   background-color: hsl(var(--color-spe), 0%);
@@ -395,4 +458,10 @@ footer{
 }
 footer>*{
   margin: 0;
+}
+
+.alert {
+  position:fixed;
+  bottom:1rem;
+  right:1rem;
 }

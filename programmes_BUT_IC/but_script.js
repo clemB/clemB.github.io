@@ -31,6 +31,7 @@ fetch(
   })
   .then(function (data) {
     d = data;
+    console.log(d);
     filterData();
   })
   .catch(function (err) {
@@ -156,26 +157,36 @@ function displayList() {
     tr.setAttribute("data-bs-target", "#my-modal");
 
     var tr_content = '<td class="text-muted fw-light">' + filtered_data[i].semestre + '</td>';
-    tr_content += '<td class="fw-bold d-flex">';
+    tr_content += '<td class="fw-bold">';
     // if (filtered_data[i].type.toLowerCase() == "sae") {
     //   tr_content += '<div class="badge bg-dark me-2">SAÉ</div>';
     // }
     // tr_content += '<div class="d-flex">';
     if (filtered_data[i].type.toLowerCase() == "sae") {
-      
+      tr_content += '<div class="d-inline-flex">';
       if(filtered_data[i].libelle.toLowerCase().startsWith("stage")){
         tr_content += '<span class="badge bg-parcours order-1">STAGE</span>';
       }else if(filtered_data[i].libelle.toLowerCase().startsWith("portfolio")){
         tr_content += '<span class="badge bg-parcours order-1">PORTFOLIO</span>';
       }
       tr_content += '<span class="badge bg-dark">SAÉ</span><span class="me-2 order-2"></span>';
-      
+      tr_content += '</div>';
     }
     // tr_content += '</div>';
 
+    tr_content += '<p class="d-inline order-3 mb-0">'+filtered_data[i].libelle+"</p></td>";
+
+    // var ue_content = "";
+    // ue_content += filtered_data[i].comp_1 ? '<span class="ue ue-1">1</span>' : '';
+    // ue_content += filtered_data[i].comp_2 ? '<span class="ue ue-2">2</span>' : '';
+    // ue_content += filtered_data[i].comp_3 ? '<span class="ue ue-3">3</span>' : '';
+    // ue_content += filtered_data[i].comp_4 ? '<span class="ue ue-4">4</span>' : '';
+    // ue_content += filtered_data[i].comp_5 ? '<span class="ue ue-5">5</span>' : '';
+    // ue_content += filtered_data[i].comp_6 ? '<span class="ue ue-6">6</span>' : '';
+
+    // tr_content += '<td>'+ue_content+"</td>";
 
 
-    tr_content += '<p class="d-inline order-3 mb-0">'+filtered_data[i].libelle + "</p></td>";
     tr_content += "<td class='text-center'>" + filtered_data[i].h_tot + "</td>";
     if(filtered_data[i].h_tp>0){
       tr_content += "<td class='text-center'>" + filtered_data[i].h_tp + "</td>";
@@ -208,15 +219,26 @@ function displayList() {
 
 function displayFiche(index){
   var modalTitle = document.querySelector("#modal-title");
-  var modalDesc = document.querySelector("#modal-desc");
-  var modalKw = document.querySelector("#modal-kw");
-  var modalH = document.querySelector("#modal-h");
-  var modalHProj = document.querySelector("#modal-h-proj");
+  var modalBody = document.querySelector("#modal-body");
 
-  modalTitle.innerHTML = "<span class='text-muted fw-light'>"+filtered_data[index].semestre +" | </span>"+ filtered_data[index].libelle;
-  modalDesc.innerHTML = filtered_data[index].description;
-  modalKw.innerHTML = filtered_data[index].mots_cles;
+  /* UE */
+  var ue_content = "";
+  ue_content += filtered_data[index].comp_1 ? '<span class="ue ue-1">UE 1</span>' : '';
+  ue_content += filtered_data[index].comp_2 ? '<span class="ue ue-2">UE 2</span>' : '';
+  ue_content += filtered_data[index].comp_3 ? '<span class="ue ue-3">UE 3</span>' : '';
+  ue_content += filtered_data[index].comp_4 ? '<span class="ue ue-4">UE 4</span>' : '';
+  ue_content += filtered_data[index].comp_5 ? '<span class="ue ue-5">UE 5</span>' : '';
+  ue_content += filtered_data[index].comp_6 ? '<span class="ue ue-6">UE 6</span>' : '';
 
+  /* description */
+  var converter = new showdown.Converter();
+  var obj = filtered_data[index].objectif;
+  var desc = filtered_data[index].description;
+  var desc_complete = obj ? obj+"<br><br>" : "";
+  desc_complete += desc;
+
+
+  /* heures */
   var h_string = "<small>";
   h_string += "<strong>"+filtered_data[index].h_tot +"h</strong>";
   if(filtered_data[index].h_tp>0){
@@ -227,8 +249,21 @@ function displayFiche(index){
   }
   h_string += "<small>";
 
-  modalH.innerHTML = h_string;
+  /* remplissage modal */
+  modalTitle.innerHTML = "<span class='text-muted fw-light'>"+filtered_data[index].semestre +" | </span>"+ filtered_data[index].libelle+ "<div class='text-muted fw-light small'>"+ue_content+"</div>";
 
+  var modalBody_content = "";
+  modalBody_content += '<h5>Description</h5>';
+  modalBody_content += '<p>'+converter.makeHtml(desc_complete)+'</p>';
+  if(filtered_data[index].mots_cles){
+    modalBody_content += '<hr>';
+    modalBody_content += '<h5>Mots-clés</h5>';
+    modalBody_content += '<p>'+ filtered_data[index].mots_cles +'</p>';
+  }
+  modalBody_content += "<hr>";
+  modalBody_content += "<p>"+h_string+"</p>";
+
+  modalBody.innerHTML = modalBody_content;
 
 }
 

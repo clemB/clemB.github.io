@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --clr-light :white;
+            --clr-dark : #333333;
+            --clr-rouge :red;
+            --clr-vert :green;
+            --clr-bleu :blue;
+            --clr-jaune :yellow;
+
+            --duration-short : .2;
+            --duration-long : .8;
+        }
+        button,
+        .btn{
+            padding: 1em 2em;
+            border:0;
+            margin: .2em;
+            text-decoration: none;
+            color: var(--clr-text-btn, var(--clr-light));
+            background-color: var(--clr-bg-btn, var(--clr-bleu));
+        }
+        button:hover,
+        .btn:hover{
+            color: var(--clr-bg-btn);
+            background-color: var(--clr-text-btn);
+            transition: calc(var(--duration-long)*1s);
+        }
+        .rouge{
+            --clr-text-btn : var(--clr-light);
+            --clr-bg-btn:var(--clr-rouge);
+        }
+        .jaune{
+            --clr-text-btn : var(--clr-dark);
+            --clr-bg-btn:var(--clr-jaune);
+        }
+    </style>
+</head>
+<body>
+    <button class="">Test</button>
+    <button class="rouge">Test</button>
+    <button class="vert">Test</button>
+    <button class="jaune">Test</button>
+
+    <a href="" class="btn ">Test</button>
+    <a href="" class="btn rouge">Test</button>
+    <a href="" class="btn vert">Test</button>
+    <a href="" class="btn jaune">Test</button>
+</body>
+</html>

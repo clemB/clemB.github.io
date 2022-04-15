@@ -22,6 +22,7 @@ remplir1_btn.addEventListener("click", function () {
     note_inputs_annee.forEach(function (note) {
         note.value = tirage_alea(6,20);
     });
+    reset_alert();
 });
 var remplir2_btn = document.getElementById("remplir2_btn");
 remplir2_btn.addEventListener("click", function () {
@@ -29,6 +30,7 @@ remplir2_btn.addEventListener("click", function () {
     note_inputs_annee.forEach(function (note) {
         note.value = tirage_alea(6,20);
     });
+    reset_alert();
 });
 var remplir3_btn = document.getElementById("remplir3_btn");
 remplir3_btn.addEventListener("click", function () {
@@ -36,6 +38,7 @@ remplir3_btn.addEventListener("click", function () {
     note_inputs_annee.forEach(function (note) {
         note.value = tirage_alea(6,20);
     });
+    reset_alert();
 });
 var jury1_btn = document.getElementById("jury-1");
 jury1_btn.addEventListener("click", function () {
@@ -55,6 +58,11 @@ jury3_btn.addEventListener("click", function () {
     notes_a3 = calcul_moyenne_annee(3);
     jury(3);
 });
+
+function reset_alert(){
+    var alert = document.querySelector("#alert");
+    alert.classList.add("d-none");
+}
 
 function tirage_alea (min, max){
     var nb_coup = 3;

@@ -16,29 +16,26 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="simulator_styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   </head>
   <body>
     <header class="bg-secondary">
 			<div class="container d-flex align-content-center">
 				<h2 class="fw-bold">  
           <a href="index.html" class="link-light"><i class="bi bi-mortarboard-fill fs-2 me-2 lh-2"></i>       
-					BUT INFO-COM </a>
+					BUT INFO-COM </a><span class="fw-light"> / Jury Simulator </span>
 				</h2>
 			</div>
 		</header>
     <main class="container mt-4">
-        <h3 class="pt-4 pb-4">Jury simulator :</h3>
-        <p class="lead">Jouez avec le simulateur de jury BUT.</p>
-        <p>Pour chaque semestre et chaque compétence, entrez des notes aux UE. Vous pouvez les rempli de façon aléatoire et modifier les valeurs à votre convenances.<br/>Chaque année, appuyez sur le bouton <span class="outline">Jury</span> pour délibérer.</strong></p>
-        <p class="bd-callout">Nous considérons que les 2 UE d'une même année pour une même compétence (regroupement cohérent d'UE) portent le même coefficient.</p>
-        <!-- <hr/>
-        <a class="btn btn-outline-secondary" id="">Remplir les UE aléatoirement</a>
-                 -->
-        <hr/>
-        <section>
-          <p class="lead"><span class="badge rounded-pill bg-primary">1.</span> Choississez un référentiel de compétences :</p>
-          <div id="ref-comp">
-          <table class="table-sm">
+      <section id="intro">
+      
+        </section>
+        <section id="choix-ref">
+          <p class="lead"><span class="rounded-badge">1.</span> Choississez un référentiel de compétences :</p>
+          <div class="ref-comp">
+          <table class="table-sm" data-parcours="com">
             <caption>ComOr</caption>
             <tbody>
               <tr>
@@ -65,7 +62,7 @@
             </tbody>
           </table>
 
-            <table class="table-sm">
+            <table class="table-sm" data-parcours="ino">
               <caption>InfoNum</caption>
               <tbody>
               <tr>
@@ -92,7 +89,7 @@
               </tbody>
               </table>
 
-              <table class="table-sm">
+              <table class="table-sm" data-parcours="jou">
                 <caption>Jou</caption>
                 <tbody>
                 <tr>
@@ -122,7 +119,7 @@
                 </tbody>
                 </table>
 
-                <table class="table-sm">
+                <table class="table-sm" data-parcours="mlp">
                   <caption>MLP</caption>
                   <tbody>
                   <tr>
@@ -149,7 +146,7 @@
                   </tbody>
                   </table>
 
-                  <table class="table-sm">
+                  <table class="table-sm" data-parcours="pub">
                     <caption>Pub</caption>
                     <tbody>
                     <tr>
@@ -171,31 +168,85 @@
                       <td class="">&nbsp;</td>
                       <td class="">&nbsp;</td>
                       <td class="c4">&nbsp;</td>
-                      <td class="c6">&nbsp;</td>
+                      <td class="c5">&nbsp;</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
+
+              <!--
+              <p class="lead">... ou définissez votre propre référentiel :</p>
+              <div class="ref-comp">
+              <table class="table-sm" data-parcours="generic">
+                <caption></caption>
+                <tbody>
+                  <tr>
+                    <td class="c1">&nbsp;</td>
+                    <td class="c2">&nbsp;</td>
+                    <td class="c3">&nbsp;</td>
+                    <td class="c4">&nbsp;</td>
+                    <td class="c5">&nbsp;</td>
+                    <td class="c6">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="c1">&nbsp;</td>
+                    <td class="c2">&nbsp;</td>
+                    <td class="c3">&nbsp;</td>
+                    <td class="c4">&nbsp;</td>
+                    <td class="c5">&nbsp;</td>
+                    <td class="c6">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="c1">&nbsp;</td>
+                    <td class="c2">&nbsp;</td>
+                    <td class="c3">&nbsp;</td>
+                    <td class="c4">&nbsp;</td>
+                    <td class="c5">&nbsp;</td>
+                    <td class="c6">&nbsp;</td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+              -->
         </section>
-        <div class="row">
+
+       <section id="jury" class="row d-none">
+          <p class="lead">2. Complétez les notes aux UE :</p>
+          <div id="tuto" class="m-4">
+            <p class="bd-callout">Pour chaque semestre et chaque compétence, entrez des notes aux UE.<br/> Vous pouvez les  <span class="outline">remplir</span> de façon aléatoire et modifier les valeurs à votre convenances.<br/>Chaque année, appuyez sur le bouton <span class="outline">Jury</span> pour simuler la délibération.</strong>
+            <br/><br/>Nous considérons que les 2 UE d'une même année pour une même compétence (regroupement cohérent d'UE) portent le même coefficient.</p>
+          </div>
+          <!-- ALERT -->
+          <div id="alert" class="alert alert-success mt-4 d-none" role="alert">
+            <h4 class="alert-heading" id="decision">Décision</h4>
+            <p id="explication">Explication.</p>
+            <!--
+            <hr>
+            <h6>Niveaux de compétence :</h6>
+            <p id ="liste" class="mb-0">Liste.</p>
+            -->
+          </div>
+          <!-- FIN ALERT -->
+
           <table>
             <thead class="text-center">
               <tr>
-                <th></th>
-                <th>Comp. 1</th>
-                <th>Comp. 2</th>
-                <th>Comp. 3</th>
-                <th>Comp. 4</th>
-                <th>Comp. 5</th>
+                <th class=""></th>
+                <th class="c1">Comp. 1</th>
+                <th class="c2">Comp. 2</th>
+                <th class="c3">Comp. 3</th>
+                <th class="c4">Comp. 4</th>
+                <th class="c5">Comp. 5</th>
+                <th class="c6">Comp. 6</th>
               </tr>
             </thead>
             <tbody>
-            <tr class="a1">
+            <tr class="a1 d-disable">
               <th>BUT 1</th>
               <td class="c1">
                 <div>
-                  <input type="number" id="s1c1" name="s1c1" min="0" max="20" class="form-control s1 c1 a1"> 
-                  <input type="number" id="s2c1" name="s2c1" min="0" max="20" class="form-control s2 c1 a1">  
+                  <div class="d-flex align-items-center"><span class="fs-xs text-muted">S1&nbsp;</span><input type="number" id="s1c1" name="s1c1" min="0" max="20" class="form-control s1 c1 a1"></div> 
+                  <div class="d-flex align-items-center"><span class="fs-xs text-muted">S2&nbsp;</span><input type="number" id="s2c1" name="s2c1" min="0" max="20" class="form-control s2 c1 a1"></div>
                 </div>
                 <p id="a1c1"></p>
                 </td>
@@ -227,106 +278,125 @@
                 </div>
                 <p id="a1c5"></p>
               </td>
-              <td>
+              <td class="c6">
+                <div>
+                  <input type="number" id="s1c6" name="s1c6" min="0" max="20" class="form-control s1 c6 a1">   
+                  <input type="number" id="s2c6" name="s2c6" min="0" max="20" class="form-control s2 c6 a1">
+                </div>
+                <p id="a1c6"></p>
+              </td>
+              <td class="a1 actions d-none">
                 <a class="btn btn-outline-secondary a1 btn-remplir" id="remplir1_btn">remplir</a>
                 <a class="btn btn-secondary a1 btn-jury" id="jury-1">jury</a>
               </td>
             </tr>
-            <tr class="a2 d-none">
+            <tr class="a2 d-disable">
               <th>BUT 2</th>
               <td class="c1">
                 <div>
-                  <input type="number" disabled id="s3c1" name="s3c1" min="0" max="20" class="form-control s3 c1 a2"> 
-                  <input type="number" disabled id="s4c1" name="s4c1" min="0" max="20" class="form-control s4 c1 a2">  
+                  <div class="d-flex align-items-center"><span class="fs-xs text-muted">S3&nbsp;</span><input type="number" id="s3c1" name="s3c1" min="0" max="20" class="form-control s3 c1 a2"></div>
+                  <div class="d-flex align-items-center"><span class="fs-xs text-muted">S4&nbsp;</span><input type="number" id="s4c1" name="s4c1" min="0" max="20" class="form-control s4 c1 a2"></div>  
                 </div>
                 <p id="a2c1"></p>
               </td>
               <td class="c2">
                 <div>
-                  <input type="number" disabled id="s3c2" name="s3c2" min="0" max="20" class="form-control s3 c2 a2">
-                  <input type="number" disabled id="s4c2" name="s4c2" min="0" max="20" class="form-control s4 c2 a2">
+                  <input type="number" id="s3c2" name="s3c2" min="0" max="20" class="form-control s3 c2 a2">
+                  <input type="number" id="s4c2" name="s4c2" min="0" max="20" class="form-control s4 c2 a2">
                 </div>   
                 <p id="a2c2"></p>
               </td>
               <td class="c3">
                 <div>
-                  <input type="number" disabled id="s3c3" name="s3c3" min="0" max="20" class="form-control s3 c3 a2">
-                  <input type="number" disabled id="s4c3" name="s4c3" min="0" max="20" class="form-control s4 c3 a2">
+                  <input type="number" id="s3c3" name="s3c3" min="0" max="20" class="form-control s3 c3 a2">
+                  <input type="number" id="s4c3" name="s4c3" min="0" max="20" class="form-control s4 c3 a2">
                 </div>   
                 <p id="a2c3"></p>
               </td>
               <td class="c4">
                 <div>
-                  <input type="number" disabled id="s3c4" name="s3c4" min="0" max="20" class="form-control s3 c4 a2">   
-                  <input type="number" disabled id="s4c4" name="s4c4" min="0" max="20" class="form-control s4 c4 a2">
+                  <input type="number" id="s3c4" name="s3c4" min="0" max="20" class="form-control s3 c4 a2">   
+                  <input type="number" id="s4c4" name="s4c4" min="0" max="20" class="form-control s4 c4 a2">
                 </div>
                 <p id="a2c4"></p>
               </td>
               <td class="c5">
                 <div>
-                  <input type="number" disabled id="s3c5" name="s3c5" min="0" max="20" class="form-control s3 c5 a2">   
-                  <input type="number" disabled id="s4c5" name="s4c5" min="0" max="20" class="form-control s4 c5 a2">
+                  <input type="number" id="s3c5" name="s3c5" min="0" max="20" class="form-control s3 c5 a2">   
+                  <input type="number" id="s4c5" name="s4c5" min="0" max="20" class="form-control s4 c5 a2">
                 </div>
                 <p id="a2c5"></p>
               </td>
-              <td>
+              <td class="c6">
+                <div>
+                  <input type="number" id="s3c6" name="s3c6" min="0" max="20" class="form-control s3 c6 a2">   
+                  <input type="number" id="s4c6" name="s4c6" min="0" max="20" class="form-control s4 c6 a2">
+                </div>
+                <p id="a2c6"></p>
+              </td>
+              <td class="a2 actions d-none">
                 <a class="btn btn-outline-secondary a2 btn-remplir" id="remplir2_btn">remplir</a>
                 <a class="btn btn-secondary a2 btn-jury" id="jury-2">jury</a>
               </td>
             </tr>
-            <tr class="a3 d-none">
+            <tr class="a3 d-disable">
               <th>BUT 3</th>
               <td class="c1">
                   <div>
-                    <input type="number" disabled id="s5c1" name="s5c1" min="0" max="20" class="form-control s5 c1 a3"> 
-                    <input type="number" disabled id="s6c1" name="s6c1" min="0" max="20" class="form-control s6 c1 a3">  
+                    <div class="d-flex align-items-center"><span class="fs-xs text-muted">S5&nbsp;</span><input type="number" id="s5c1" name="s5c1" min="0" max="20" class="form-control s5 c1 a3"></div>
+                    <div class="d-flex align-items-center"><span class="fs-xs text-muted">S6&nbsp;</span><input type="number" id="s6c1" name="s6c1" min="0" max="20" class="form-control s6 c1 a3"></div>
                 </div>
                 <p id="a3c1"></p>
               </td>
               <td class="c2">
                 <div>
-                  <input type="number" disabled id="s5c2" name="s5c2" min="0" max="20" class="form-control s5 c2 a3">
-                  <input type="number" disabled id="s6c2" name="s6c2" min="0" max="20" class="form-control s6 c2 a3"> 
+                  <input type="number" id="s5c2" name="s5c2" min="0" max="20" class="form-control s5 c2 a3">
+                  <input type="number" id="s6c2" name="s6c2" min="0" max="20" class="form-control s6 c2 a3"> 
                 </div>  
                 <p id="a3c2"></p>
               </td>
               <td class="c3">
                 <div>
-                  <input type="number" disabled id="s5c3" name="s5c3" min="0" max="20" class="form-control s5 c3 a3">
-                  <input type="number" disabled id="s6c3" name="s6c3" min="0" max="20" class="form-control s6 c3 a3">
+                  <input type="number" id="s5c3" name="s5c3" min="0" max="20" class="form-control s5 c3 a3">
+                  <input type="number" id="s6c3" name="s6c3" min="0" max="20" class="form-control s6 c3 a3">
                 </div> 
                 <p id="a3c3"></p>  
               </td>
               <td class="c4">
                 <div>
-                  <input type="number" disabled id="s5c4" name="s5c4" min="0" max="20" class="form-control s5 c4 a3">   
-                  <input type="number" disabled id="s6c4" name="s6c4" min="0" max="20" class="form-control s6 c4 a3">
+                  <input type="number" id="s5c4" name="s5c4" min="0" max="20" class="form-control s5 c4 a3">   
+                  <input type="number" id="s6c4" name="s6c4" min="0" max="20" class="form-control s6 c4 a3">
                 </div>
                 <p id="a3c4"></p>
               </td>
               <td class="c5">
                 <div>
-                  <input type="number" disabled id="s5c5" name="s5c5" min="0" max="20" class="form-control s5 c5 a3">   
-                  <input type="number" disabled id="s6c5" name="s6c5" min="0" max="20" class="form-control s6 c5 a3">
+                  <input type="number" id="s5c5" name="s5c5" min="0" max="20" class="form-control s5 c5 a3">   
+                  <input type="number" id="s6c5" name="s6c5" min="0" max="20" class="form-control s6 c5 a3">
                 </div>
                 <p id="a3c5"></p>
               </td>
-              <td>
+              <td class="c6">
+                <div>
+                  <input type="number" id="s5c6" name="s5c6" min="0" max="20" class="form-control s5 c6 a3">   
+                  <input type="number" id="s6c6" name="s6c6" min="0" max="20" class="form-control s6 c6 a3">
+                </div>
+                <p id="a3c6"></p>
+              </td>
+              <td class="a3 actions d-none">
                 <a class="btn btn-outline-secondary a3 btn-remplir" id="remplir3_btn">remplir</a>
                 <a class="btn btn-secondary a3 btn-jury" id="jury-3">jury</a>
               </td>
             </tr>
           </tbody>
           </table>
-        </div>
-        <div id="alert" class="alert alert-success mt-4 d-none" role="alert">
-          <h4 class="alert-heading" id="decision">Décision</h4>
-          <p id="explication">Explication.</p>
-          <hr>
-          <h6>Niveaux de compétence :</h6>
-          <p id ="liste" class="mb-0">Liste.</p>
-        </div>
+        </section>
+       
     </main>
+
+    <footer>
+      <p class="text-center fs-sm">Crafted with <i class="bi bi-suit-heart-fill"></i> by C. Borel </p>
+    </footer>
 
     <script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

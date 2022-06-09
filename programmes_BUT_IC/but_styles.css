@@ -377,9 +377,11 @@ abbr.pub {
 background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb(173, 181, 189)'/%3e%3c/svg%3e");
 }
 
-.preco{
+.preco .form-check-input:checked{
   /* background-color: var(--color-al); */
-  color: var(--color-spe);
+  background-color: var(--color-al);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb(108,117,125)'/%3e%3c/svg%3e");
+
 }
 
 .badge{

@@ -24,6 +24,12 @@
 
     font-size: 0.9rem;
 }
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    
+}
 header {
     color: white;
     padding: 1rem;
@@ -36,33 +42,55 @@ header h2 {
 header h2>a{
     text-decoration: none;
 }
+footer{
+    margin-top: 4rem;
+    padding: 1rem;
+    background-color: var(--color-com);
+    font-size: smaller;
+    color: var(--grayishBlue);
+}
+footer>*{
+    margin: 0;
+}
 
-#ref-comp{
-    display:flex;
-    flex-wrap: wrap;
-    gap:1rem;
+main{
+    height: 100%;
 }
-#ref-comp > *{
-    align-self: start;
-    flex:1 1;
+
+hr{
+    width:80%;
+    margin: 4rem auto;
 }
-#ref-comp > table{
+
+
+.ref-comp{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+}
+.ref-comp > table{
     border: thin solid var(--grayishBlue);
 }
-#ref-comp > table:hover{
+.ref-comp > table:hover{
     border: thin solid var(--veryDarkBlue);
 }
-#ref-comp > table:hover caption{
+.ref-comp > table:hover caption{
     color: var(--veryDarkBlue);
     font-weight: bold;
 }
-#ref-comp td{
+.ref-comp td{
     width: 2rem;
     height:2rem;
+    pointer-events: none;
 }
-#ref-comp caption{
-    /* caption-side:top; */
+.ref-comp caption{
     text-align: center;
+}
+
+#create-ref-comp{
+    display:flex;
+    flex-wrap: wrap;
+    gap:1rem;
 }
 
 table, input, input.form-control{
@@ -75,8 +103,8 @@ table{
 td{
     padding: 1em;
 }
-td>div>input{
-    margin-bottom: 0.2em;
+input{
+   
 }
 
 td.c1{
@@ -100,7 +128,8 @@ td.c6{
 
 input[type=number].form-control{
     background-color: rgba(255,255,255,0.5);
-    text-align: center;
+    text-align: center; 
+    margin-bottom: 0.2em;
 }
 
 .outline{
@@ -128,20 +157,20 @@ td>p{
     margin-right: 0.5em;
     margin-bottom: 0;
 }
-td.comp-invalid {
-    outline: 0.2em solid var(--red);
-    outline-offset: -0.5em;
-}
-.comp-valid {
-    outline: 0.2em solid var(--green);
-    outline-offset: -0.5em;
-}
 
-td.comp-valid p {
-    color: var(--green);
+td[data-statut]{
+    outline: 0.2em solid var(--statut-clr);
+    outline-offset: -0.5em;
+    color: var(--statut-clr);
 }
-td.comp-invalid p{
-    color: var(--red);
+/* td[data-statut] p{
+   color: var(--statut-clr);
+} */
+td[data-statut='val']{
+    --statut-clr:var(--green);
+}
+td[data-statut='nval']{
+    --statut-clr:var(--red);
 }
 
 
@@ -155,4 +184,30 @@ td.comp-invalid p{
     left:7em;
 } */
 
-.
+.d-disable{
+    opacity: .2;
+    pointer-events: none;
+}
+.d-disable input{
+    color:transparent;
+}
+.d-invisible{
+    opacity: 0;
+    pointer-events: none;
+}
+.d-close{
+    pointer-events: none;
+}
+
+.rounded-badge{
+
+}
+
+p.lead{
+    margin-top: 2rem;;
+}
+
+.fs-xs{
+    font-size: 0.7rem;
+    color: white !important;
+}

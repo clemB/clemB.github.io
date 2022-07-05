@@ -86,7 +86,8 @@ function displayGrid() {
 
     var article_content = '';
     article_content += '<div class="card-body">';
-    article_content += '<span class="card-subtiltle text-muted fw-light">'+ filtered_data[i].semestre +'</span>';
+    article_content += '<span class="card-subtiltle text-muted fw-light">'+ filtered_data[i].semestre +'&nbsp;</span>';
+
     if (filtered_data[i].type.toLowerCase() == "sae") {
       
       if(filtered_data[i].libelle.toLowerCase().startsWith("stage")){
@@ -97,7 +98,16 @@ function displayGrid() {
       article_content += '<span class="badge bg-dark mb-2 float-end">SAÉ</span>';
       
     }
+
     article_content += '<p class="card-title mt-2">' + filtered_data[i].libelle + "</p>";
+
+    // article_content += "<br/>"
+    article_content += filtered_data[i].comp_1 ? '<span class="ue-outline ue-outline-1">UE 1</span>' : '';
+    article_content += filtered_data[i].comp_2 ? '<span class="ue-outline ue-outline-2">UE 2</span>' : '';
+    article_content += filtered_data[i].comp_3 ? '<span class="ue-outline ue-outline-3">UE 3</span>' : '';
+    article_content += filtered_data[i].comp_4 ? '<span class="ue-outline ue-outline-4">UE 4</span>' : '';
+    article_content += filtered_data[i].comp_5 ? '<span class="ue-outline ue-outline-5">UE 5</span>' : '';
+    article_content += filtered_data[i].comp_6 ? '<span class="ue-outline ue-outline-6">UE 6</span>' : '';
 
     if(filtered_data[i].type.toLowerCase() == "ressource"){
       article_content += '<p class="card-subtitle mb-2 text-muted">'+ filtered_data[i].mots_cles +'</p>';
@@ -140,7 +150,7 @@ function displayList() {
   var table = document.createElement("table");
   table.className = "table table-sm t-hover";
   table.innerHTML =
-    "<thead><tr><th>Sem.</th><th>Libellé</th><th class='text-center'>h. form.</th><th class='text-center'>dont TP</th><th class='text-center'>h. projet</th></tr></thead>";
+    "<thead><tr><th>Sem.</th><th>Libellé</th><th class='text-center'>UE</th><th class='text-center'>h. form.</th><th class='text-center'>dont TP</th><th class='text-center'>h. projet</th></tr></thead>";
   var tbody = document.createElement("tbody");
 
   for (var i = 0; i < filtered_data.length; i++) {
@@ -176,7 +186,7 @@ function displayList() {
 
     tr_content += '<p class="d-inline order-3 mb-0">'+filtered_data[i].libelle+"</p></td>";
 
-    // var ue_content = "";
+    var ue_content = "";
     // ue_content += filtered_data[i].comp_1 ? '<span class="ue ue-1">1</span>' : '';
     // ue_content += filtered_data[i].comp_2 ? '<span class="ue ue-2">2</span>' : '';
     // ue_content += filtered_data[i].comp_3 ? '<span class="ue ue-3">3</span>' : '';
@@ -184,7 +194,14 @@ function displayList() {
     // ue_content += filtered_data[i].comp_5 ? '<span class="ue ue-5">5</span>' : '';
     // ue_content += filtered_data[i].comp_6 ? '<span class="ue ue-6">6</span>' : '';
 
-    // tr_content += '<td>'+ue_content+"</td>";
+    ue_content += filtered_data[i].comp_1 ? '<span class="ue-num ue-num-1">1</span>' : '';
+    ue_content += filtered_data[i].comp_2 ? '<span class="ue-num ue-num-2">2</span>' : '';
+    ue_content += filtered_data[i].comp_3 ? '<span class="ue-num ue-num-3">3</span>' : '';
+    ue_content += filtered_data[i].comp_4 ? '<span class="ue-num ue-num-4">4</span>' : '';
+    ue_content += filtered_data[i].comp_5 ? '<span class="ue-num ue-num-5">5</span>' : '';
+    ue_content += filtered_data[i].comp_6 ? '<span class="ue-num ue-num-6">6</span>' : '';
+
+    tr_content += "<td class='text-center'>"+ue_content+"</td>";
 
 
     tr_content += "<td class='text-center'>" + filtered_data[i].h_tot + "</td>";

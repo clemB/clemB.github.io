@@ -40,8 +40,12 @@
 			</div>
 		</header>
 
+		<div id="left-hover-zone"></div>
 		<div class="container d-flex flex-wrap">
-			<aside id="filter-panel">
+			<button id="toggle-filter-btn" class="btn btn-secondary btn-sm" type="button">
+				<i id="toggle-filter-arrow" class="bi bi-caret-right-fill"></i>
+			</button>
+			<aside id="filter-panel" class="hidden">
 				<form id="filter-options" class="d-flex flex-wrap">
 					<!-- SEMESTRE -->
 					<div>
@@ -228,85 +232,22 @@
 				</form>
 				
 			</aside>
-			<main id="main-panel">
+			<main id="main-panel" class="expanded">
 				<div class="btn-toolbar justify-content-end d-flex" role="toolbar">
-					<div>
-					<!-- TRI -->
-					<label class="lead m-2">Tri par</label>
-					<div
-						class="btn-group m-2 btn-group-sm"
-						role="group"
-						aria-label="Toggle button group to change display order"
-					>
-						<input
-							type="radio"
-							class="btn-check"
-							name="sort_buttons"
-							id="sort_sem"
-							autocomplete="off"
-							checked
-						/>
-						<label class="btn btn-outline-secondary" for="sort_sem">Semestre</label>
 
-						<input
-							type="radio"
-							class="btn-check"
-							name="sort_buttons"
-							id="sort_type"
-							autocomplete="off"
-						/>
-						<label class="btn btn-outline-secondary" for="sort_type">Type</label>
-
-						<input
-							type="radio"
-							class="btn-check"
-							name="sort_buttons"
-							id="sort_comp"
-							autocomplete="off"
-						/>
-						<label class="btn btn-outline-secondary" for="sort_comp">Compétence</label>
-					</div>
-					</div>
-
-					<!-- AFFICHAGE -->
-					<div>
-					<label class="lead m-2 ps-5">Affichage</label>
-          
-					<div
-						class="btn-group m-2 btn-group-sm"
-						role="group"
-						aria-label="display buttons"
-					>
-							<input
-								type="radio"
-								class="btn-check"
-								name="display_buttons"
-								id="btn_list"
-								autocomplete="off"
-								checked
-							/>
-							<label class="btn btn-outline-secondary" for="btn_list">
-                				<i class="bi bi-list"></i>
-							</label>
-
-							<input
-								type="radio"
-								class="btn-check"
-								name="display_buttons"
-								id="btn_grid"
-								autocomplete="off"
-							/>
-							<label class="btn btn-outline-secondary" for="btn_grid">
-								<i class="bi bi-grid-3x3-gap-fill"></i>
-							</label>
+					<!-- COMPARAISON PROGRAMMES -->
+					<div class="d-flex align-items-center">
+						<label class="m-2">Comparer les programmes</label>
+						<div class="form-check form-switch m-2">
+							<input class="form-check-input" type="checkbox" role="switch" id="compare-toggle">
 						</div>
 					</div>
 
           
 				</div>
 
-				<section class="gridish sm" id="dataContainer">
-					<p class="text-center">Chargement...</p>>
+				<section id="dataContainer">
+					<p class="text-center">Chargement...</p>
 				</section>
 			</main>
 		</div>

@@ -35,6 +35,8 @@ header {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 100;
 }
 header h2 {
   font-size: 18pt;
@@ -49,10 +51,67 @@ div.content-flex {
 
 aside {
   padding: 1rem;
-  flex:1
+  padding-top: 10rem;
+  border-right: thin solid lightgray;
+  box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+  z-index: 99;
+}
+aside.hidden {
+  left: -185px;
+  opacity: 1;
+}
+#left-hover-zone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100vh;
+  z-index: 98;
+  background-color: transparent;
 }
 main {
   flex:7;
+  transition: margin-left 0.3s ease-in-out;
+}
+main.expanded {
+  margin-left: 0;
+}
+#toggle-filter-btn {
+  position: fixed;
+  top: 6rem;
+  left: 200px;
+  z-index: 1000;
+  box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  transform: translateX(0);
+  transition: left 0.3s ease-in-out, transform 0.3s ease-in-out;
+  background-color: white;
+  border: thin solid lightgray;
+  border-left: none;
+  color: #6c757d;
+  margin-left: -1px;
+  clip-path: inset(0 -10px -10px 0);
+}
+
+#toggle-filter-btn:hover {
+  transform: translateX(3px);
+  background-color: white;
+  border-color: lightgray;
+  color: #495057;
+}
+
+body:has(aside.hidden) #toggle-filter-btn {
+  left: 15px;
 }
 
 /* FORMULAIRE */
@@ -86,7 +145,13 @@ section {
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
+}
+.gridish {
   gap: 1rem;
+}
+.flex-1 {
+  flex: 1;
+  min-width: 0;
 }
 .gridish.lg > * {
   flex: 1 1 max(30rem, calc(50% - 1rem));
@@ -95,7 +160,7 @@ section {
   flex: 1 1 max(22rem, calc(33% - 1rem));
 }
 .gridish.sm > * {
-  flex: 1 1 max(15rem, calc(25% - 1rem));
+  flex: 1 1 100%;
 }
 article.spe{
   border-top: 3px solid var(--color-spe);
@@ -105,6 +170,67 @@ article.com{
 }
 article.v_al{
   background-color: var(--color-al);
+}
+
+/* Programme actuel - tableau de gauche */
+.old-program-opacity {
+  opacity: 0.6;
+  pointer-events: auto;
+}
+.old-program-opacity table tr {
+  pointer-events: auto;
+}
+.old-program-label {
+  position: relative;
+}
+.old-program-label::before {
+  content: "Programme actuel (BUT 2020)";
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6c757d;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Nouveau programme - tableau de droite */
+.new-program {
+  position: relative;
+}
+.new-program::before {
+  content: "Programme à venir (BUT 2027) - en cours de rédaction";
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #28a745;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Switch de comparaison en vert quand activé */
+#compare-toggle:checked {
+  background-color: #28a745;
+  border-color: #90ee90;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e");
+}
+
+#compare-toggle:checked:focus {
+  border-color: #90ee90;
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+
+/* Masquer les colonnes d'heures dans les tableaux du nouveau programme */
+.new-program-table th:nth-child(4),
+.new-program-table th:nth-child(5),
+.new-program-table th:nth-child(6),
+.new-program-table td:nth-child(4),
+.new-program-table td:nth-child(5),
+.new-program-table td:nth-child(6) {
+  display: none;
 }
 
 article:hover {
@@ -122,6 +248,34 @@ article:hover {
 
 table{
   font-size:0.9rem;
+  line-height: 1.3rem;
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* Largeurs fixes pour l'alignement des colonnes */
+table th:nth-child(1), table td:nth-child(1) { width: 40px; }   /* Semestre */
+table th:nth-child(2), table td:nth-child(2) { width: auto; }  /* Libellé */
+table th:nth-child(3), table td:nth-child(3) { width: 80px; }  /* UE */
+table th:nth-child(4), table td:nth-child(4) { width: 50px; }  /* h. form. */
+table th:nth-child(5), table td:nth-child(5) { width: 50px; }  /* dont TP */
+table th:nth-child(6), table td:nth-child(6) { width: 50px; }  /* h. projet */
+
+/* Empêcher le retour à la ligne et tronquer le texte */
+table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Développer les lignes tronquées au survol */
+table tr:hover td {
+  white-space: normal;
+  overflow: visible;
+}
+
+th{
+  line-height: 1rem;
 }
 
 tr.spe{
@@ -367,7 +521,7 @@ abbr.pub {
 }
 
 .form-check-input:focus {
-  border-color: #adb5bd;
+  border-color: #b6bdad;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgb(173 181 189 / 25%);
 }

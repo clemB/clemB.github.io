@@ -397,10 +397,10 @@ function displayList() {
     // Tableau 1
     var tableWrapper1 = document.createElement("div");
     var classes1 = "flex-1";
-    if (compareEnabled) {
+    if (viewMode === "both") {
       classes1 += " old-program-opacity";
-      if (semestreIndex === 0) classes1 += " old-program-label";
     }
+    if (semestreIndex === 0) classes1 += " old-program-label";
     tableWrapper1.className = classes1;
     var table1 = document.createElement("table");
     table1.className = "table table-sm t-hover";
@@ -415,14 +415,17 @@ function displayList() {
       });
     }
 
-    table1.appendChild(tbody1);
-    tableWrapper1.appendChild(table1);
-    tablesContainer.appendChild(tableWrapper1);
+    if (viewMode !== "2027") {
+      table1.appendChild(tbody1);
+      tableWrapper1.appendChild(table1);
+      tablesContainer.appendChild(tableWrapper1);
+    }
 
-    // Tableau 2 - seulement si la comparaison est activée
-    if (compareEnabled) {
+    // Tableau 2 - si mode "both" ou "2027"
+    if (viewMode !== "2020") {
       var tableWrapper2 = document.createElement("div");
-      tableWrapper2.className = semestreIndex === 0 ? "flex-1 new-program" : "flex-1";
+      var newProgramClass = semestreIndex === 0 ? "flex-1 new-program" : "flex-1";
+      tableWrapper2.className = newProgramClass;
       var table2 = document.createElement("table");
       table2.className = "table table-sm t-hover new-program-table";
       if (semestreIndex === 0) {
@@ -574,11 +577,12 @@ checkboxes.forEach(function (checkbox) {
   });
 });
 
-/****** COMPARE TOGGLE ******/
-var compareToggle = document.getElementById("compare-toggle");
-var compareEnabled = false;
+/****** VIEW MODE SWITCH ******/
+var viewMode = "2020"; // "2020", "both", "2027"
 
-compareToggle.addEventListener("change", function () {
-  compareEnabled = this.checked;
-  displayData();
+document.querySelectorAll('input[name="view-mode"]').forEach(function(radio) {
+  radio.addEventListener("change", function() {
+    viewMode = this.value;
+    displayData();
+  });
 });

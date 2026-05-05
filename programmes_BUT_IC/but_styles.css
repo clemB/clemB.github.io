@@ -184,7 +184,7 @@ article.v_al{
   position: relative;
 }
 .old-program-label::before {
-  content: "Programme actuel (BUT 2020)";
+  content: "Programme actuel (BUT 2021)";
   position: absolute;
   top: -1.5rem;
   left: 0;
@@ -211,17 +211,6 @@ article.v_al{
   pointer-events: none;
 }
 
-/* Switch de comparaison en vert quand activé */
-#compare-toggle:checked {
-  background-color: #28a745;
-  border-color: #90ee90;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e");
-}
-
-#compare-toggle:checked:focus {
-  border-color: #90ee90;
-  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
-}
 
 
 article:hover {

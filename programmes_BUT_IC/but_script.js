@@ -332,13 +332,14 @@ function displayList() {
       item.competence.toLowerCase()
     ];
     
-    // Seulement le tableau de gauche est cliquable
+    classString.push("c-pointer");
     if (!isSecondTable) {
-      classString.push("c-pointer");
       tr.setAttribute("onClick", "displayFiche('"+index+"')");
-      tr.setAttribute("data-bs-toggle","modal");
-      tr.setAttribute("data-bs-target", "#my-modal");
+    } else {
+      tr.setAttribute("onClick", "displayFiche2('"+index+"')");
     }
+    tr.setAttribute("data-bs-toggle","modal");
+    tr.setAttribute("data-bs-target", "#my-modal");
     
     tr.className = classString.join(" ");
 
@@ -492,7 +493,7 @@ function displayFicheCommon(index, dataSource, isNewProgram){
   
   // Avertissement pour le nouveau programme
   if(isNewProgram) {
-    modalBody_content += '<div class="alert alert-warning" role="alert"><i class="bi bi-exclamation-triangle-fill"></i> <strong>Description non contractuelle</strong></div>';
+    modalBody_content += '<div class="alert alert-warning" role="alert"><i class="bi bi-exclamation-triangle-fill"></i> <strong>Programme en cours de rédaction | non validé</strong></div>';
   }
   
   modalBody_content += '<h5>Description</h5>';

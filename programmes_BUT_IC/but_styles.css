@@ -169,7 +169,8 @@ article.com{
   border-top: 3px solid var(--color-com);
 }
 article.v_al{
-  background-color: var(--color-al);
+  background-color: color-mix(in srgb, var(--color-spe) 15%, white);
+  border-top: 3px solid var(--color-spe);
 }
 
 /* Programme actuel - tableau de gauche */
@@ -200,7 +201,7 @@ article.v_al{
   position: relative;
 }
 .new-program::before {
-  content: "Programme à venir (BUT 2027) - en cours de rédaction";
+  content: "Programme à venir (BUT 2027) - en cours de validation";
   position: absolute;
   top: -1.5rem;
   left: 0;
@@ -269,8 +270,8 @@ tr.com{
 }
 
 tr.v_al{
-  background-color: var(--color-al);
-  border-left: thick solid var(--color-al);
+  background-color: color-mix(in srgb, var(--color-spe) 15%, white);
+  border-left: thick solid var(--color-spe);
 }
 /* tr.spe.sae {
   background-color: var(--color-spe);
@@ -529,6 +530,11 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
 .badge.bg-parcours{
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
+}
+
+.badge.bg-parcours.pae-badge{
+  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
 }
 
 .ue{

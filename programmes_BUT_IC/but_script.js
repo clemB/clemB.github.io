@@ -3,7 +3,7 @@ const parcours = urlParams.get('parcours');
 // Source de données pour le tableau 1
 const dataUrl1 = "https://opensheet.elk.sh/15x5WdUlCt_8d4j5JyzorDzj6JZ5ivW2voxt1VW7I0TU/"+parcours;
 // Source de données pour le tableau 2 (modifier cette ligne pour charger depuis une autre source)
-const dataUrl2 = "https://opensheet.elk.sh/1DhvL0ztY_3HiNN1h2Hoa9aw4Ptjak-g8klj1Jz_xEwU/"+parcours;
+const dataUrl2 = "https://opensheet.elk.sh/1Dv5aNm5CXbaS9TaeGT3YFnyArx-EHP4iHgDFGbyOBM4/"+parcours;
 
 const parcours_item = document.getElementById("btn_"+parcours.toLowerCase());
 
@@ -158,14 +158,12 @@ function displayGrid() {
     article_content += '<span class="card-subtiltle text-muted fw-light">'+ filtered_data[i].semestre +'&nbsp;</span>';
 
     if (filtered_data[i].type.toLowerCase() == "sae") {
-      
       if(filtered_data[i].libelle.toLowerCase().startsWith("stage")){
         article_content += '<span class="badge bg-parcours mb-2 float-end">STAGE</span>';
       }else if(filtered_data[i].libelle.toLowerCase().startsWith("portfolio")){
         article_content += '<span class="badge bg-parcours mb-2 float-end">PORTFOLIO</span>';
       }
       article_content += '<span class="badge bg-dark mb-2 float-end">SAÉ</span>';
-      
     }
 
     article_content += '<p class="card-title mt-2">' + filtered_data[i].libelle + "</p>";
@@ -225,14 +223,14 @@ function displayGrid() {
     article_content += '<span class="card-subtiltle text-muted fw-light">'+ filtered_data2[i].semestre +'&nbsp;</span>';
 
     if (filtered_data2[i].type.toLowerCase() == "sae") {
-      
       if(filtered_data2[i].libelle.toLowerCase().startsWith("stage")){
         article_content += '<span class="badge bg-parcours mb-2 float-end">STAGE</span>';
-      }else if(filtered_data2[i].libelle.toLowerCase().startsWith("portfolio")){
-        article_content += '<span class="badge bg-parcours mb-2 float-end">PORTFOLIO</span>';
+        article_content += '<span class="badge bg-dark mb-2 float-end">SAÉ</span>';
+      } else if(filtered_data2[i].libelle.toLowerCase().startsWith("portfolio")){
+        article_content += '<span class="badge bg-parcours pae-badge mb-2 float-end">PAÉ</span>';
+      } else {
+        article_content += '<span class="badge bg-dark mb-2 float-end">SAÉ</span>';
       }
-      article_content += '<span class="badge bg-dark mb-2 float-end">SAÉ</span>';
-      
     }
 
     article_content += '<p class="card-title mt-2">' + filtered_data2[i].libelle + "</p>";
@@ -350,10 +348,17 @@ function displayList() {
       tr_content += '<div class="d-inline-flex">';
       if(item.libelle.toLowerCase().startsWith("stage")){
         tr_content += '<span class="badge bg-parcours order-1">STAGE</span>';
+        tr_content += '<span class="badge bg-dark">SAÉ</span><span class="me-2 order-2"></span>';
       }else if(item.libelle.toLowerCase().startsWith("portfolio")){
-        tr_content += '<span class="badge bg-parcours order-1">PORTFOLIO</span>';
+        if (isSecondTable) {
+          tr_content += '<span class="badge bg-parcours pae-badge order-1">PAÉ</span><span class="me-2 order-2"></span>';
+        } else {
+          tr_content += '<span class="badge bg-parcours order-1">PORTFOLIO</span>';
+          tr_content += '<span class="badge bg-dark">SAÉ</span><span class="me-2 order-2"></span>';
+        }
+      } else {
+        tr_content += '<span class="badge bg-dark">SAÉ</span><span class="me-2 order-2"></span>';
       }
-      tr_content += '<span class="badge bg-dark">SAÉ</span><span class="me-2 order-2"></span>';
       tr_content += '</div>';
     }
 
@@ -496,7 +501,7 @@ function displayFicheCommon(index, dataSource, isNewProgram){
   
   // Avertissement pour le nouveau programme
   if(isNewProgram) {
-    modalBody_content += '<div class="alert alert-warning" role="alert"><i class="bi bi-exclamation-triangle-fill"></i> <strong>Programme en cours de rédaction | non validé</strong></div>';
+    modalBody_content += '<div class="alert alert-warning" role="alert"><i class="bi bi-exclamation-triangle-fill"></i> <strong>Programme en cours de validation</strong></div>';
   }
   
   modalBody_content += '<h5>Description</h5>';

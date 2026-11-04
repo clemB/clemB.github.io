@@ -21,6 +21,7 @@ var pub_color = "hsl(34, 97%, 64%)";
 
 var current_color = eval(parcours.toLowerCase()+"_color");
 var current_parcours = parcours_item.textContent;
+var isJouParcours = parcours && parcours.toLowerCase() === "jou";
 
 /* SET CURRENT PROPERTIES */
 document.getElementById("current_page").textContent = current_parcours;
@@ -174,7 +175,7 @@ function displayGrid() {
     article_content += filtered_data[i].comp_3 ? '<span class="ue-outline ue-outline-3">UE 3</span>' : '';
     article_content += filtered_data[i].comp_4 ? '<span class="ue-outline ue-outline-4">UE 4</span>' : '';
     article_content += filtered_data[i].comp_5 ? '<span class="ue-outline ue-outline-5">UE 5</span>' : '';
-    article_content += filtered_data[i].comp_6 ? '<span class="ue-outline ue-outline-6">UE 6</span>' : '';
+    article_content += isJouParcours && filtered_data[i].comp_6 ? '<span class="ue-outline ue-outline-6">UE 6</span>' : '';
 
     if(filtered_data[i].type.toLowerCase() == "ressource"){
       article_content += '<p class="card-subtitle mb-2 text-muted">'+ filtered_data[i].mots_cles +'</p>';
@@ -240,7 +241,7 @@ function displayGrid() {
     article_content += filtered_data2[i].comp_3 ? '<span class="ue-outline ue-outline-3">UE 3</span>' : '';
     article_content += filtered_data2[i].comp_4 ? '<span class="ue-outline ue-outline-4">UE 4</span>' : '';
     article_content += filtered_data2[i].comp_5 ? '<span class="ue-outline ue-outline-5">UE 5</span>' : '';
-    article_content += filtered_data2[i].comp_6 ? '<span class="ue-outline ue-outline-6">UE 6</span>' : '';
+    article_content += isJouParcours && filtered_data2[i].comp_6 ? '<span class="ue-outline ue-outline-6">UE 6</span>' : '';
 
     if(filtered_data2[i].type.toLowerCase() == "ressource"){
       article_content += '<p class="card-subtitle mb-2 text-muted">'+ filtered_data2[i].mots_cles +'</p>';
@@ -370,7 +371,7 @@ function displayList() {
     ue_content += item.comp_3 ? '<span class="ue-num ue-num-3">3</span>' : '';
     ue_content += item.comp_4 ? '<span class="ue-num ue-num-4">4</span>' : '';
     ue_content += item.comp_5 ? '<span class="ue-num ue-num-5">5</span>' : '';
-    ue_content += item.comp_6 ? '<span class="ue-num ue-num-6">6</span>' : '';
+    ue_content += isJouParcours && item.comp_6 ? '<span class="ue-num ue-num-6">6</span>' : '';
 
     tr_content += "<td class='text-center'>"+ue_content+"</td>";
     tr_content += "<td class='text-center'>" + item.h_tot + "</td>";
@@ -473,7 +474,7 @@ function displayFicheCommon(index, dataSource, isNewProgram){
   ue_content += dataSource[index].comp_3 ? '<span class="ue ue-3">UE 3</span>' : '';
   ue_content += dataSource[index].comp_4 ? '<span class="ue ue-4">UE 4</span>' : '';
   ue_content += dataSource[index].comp_5 ? '<span class="ue ue-5">UE 5</span>' : '';
-  ue_content += dataSource[index].comp_6 ? '<span class="ue ue-6">UE 6</span>' : '';
+  ue_content += isJouParcours && dataSource[index].comp_6 ? '<span class="ue ue-6">UE 6</span>' : '';
 
   /* description */
   var converter = new showdown.Converter();

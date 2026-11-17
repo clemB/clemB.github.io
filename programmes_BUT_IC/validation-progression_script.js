@@ -46,7 +46,7 @@ ref_comp_buttons.forEach(function (ref_comp_parcours){
         if(this.dataset.parcours=="generic"){
             createRefComp();
         }
-        ref_comp = eval("ref_comp_"+this.dataset.parcours);
+        ref_comp = ({generic: ref_comp, com: ref_comp_com, ino: ref_comp_ino, jou: ref_comp_jou, mlp: ref_comp_mlp, pub: ref_comp_pub})[this.dataset.parcours];
 
         masqueComp();
         display(annee);

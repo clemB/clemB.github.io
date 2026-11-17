@@ -1,5 +1,10 @@
+const PARCOURS_VALIDES = ["COM", "INO", "JOU", "MLP", "PUB"];
 const urlParams = new URLSearchParams(window.location.search);
-const parcours = urlParams.get('parcours');
+const parcours = (urlParams.get('parcours') || "").toUpperCase();
+if (!PARCOURS_VALIDES.includes(parcours)) {
+  window.location.replace("index.html");
+  throw new Error("Parcours inconnu : " + parcours);
+}
 // Source de données pour le tableau 1
 const dataUrl1 = "https://opensheet.elk.sh/15x5WdUlCt_8d4j5JyzorDzj6JZ5ivW2voxt1VW7I0TU/"+parcours;
 // Source de données pour le tableau 2 (modifier cette ligne pour charger depuis une autre source)
@@ -7,19 +12,22 @@ const dataUrl2 = "https://opensheet.elk.sh/1Dv5aNm5CXbaS9TaeGT3YFnyArx-EHP4iHgDF
 
 const parcours_item = document.getElementById("btn_"+parcours.toLowerCase());
 
+var viewMode = "2020"; // "2020", "both", "2027"
 var d; // data array for table 1
 var d2; // data array for table 2
 var filter = [];
 var filtered_data = []; // filtered data for table 1
 var filtered_data2 = []; // filtered data for table 2
 
-var com_color = "hsl(0, 78%, 62%)";
-var ino_color = "hsl(180, 62%, 55%)";
-var jou_color = "hsl(322, 47%, 38%)";
-var mlp_color = "hsl(212, 86%, 64%)";
-var pub_color = "hsl(34, 97%, 64%)";
+var parcours_colors = {
+  com: "hsl(0, 78%, 62%)",
+  ino: "hsl(180, 62%, 55%)",
+  jou: "hsl(322, 47%, 38%)",
+  mlp: "hsl(212, 86%, 64%)",
+  pub: "hsl(34, 97%, 64%)"
+};
 
-var current_color = eval(parcours.toLowerCase()+"_color");
+var current_color = parcours_colors[parcours.toLowerCase()];
 var current_parcours = parcours_item.textContent;
 var isJouParcours = parcours && parcours.toLowerCase() === "jou";
 
@@ -36,63 +44,44 @@ const toggleFilterArrow = document.getElementById("toggle-filter-arrow");
 const leftHoverZone = document.getElementById("left-hover-zone");
 let filterVisible = false;
 
+function setFilterVisible(visible) {
+  filterVisible = visible;
+  filterPanel.classList.toggle("hidden", !visible);
+  mainPanel.classList.toggle("expanded", visible === false);
+  toggleFilterArrow.classList.toggle("bi-caret-right-fill", !visible);
+  toggleFilterArrow.classList.toggle("bi-caret-left-fill", visible);
+}
+
 toggleFilterBtn.addEventListener("click", function() {
-  filterVisible = !filterVisible;
-  if (filterVisible) {
-    filterPanel.classList.remove("hidden");
-    mainPanel.classList.remove("expanded");
-    toggleFilterArrow.classList.remove("bi-caret-right-fill");
-    toggleFilterArrow.classList.add("bi-caret-left-fill");
-  } else {
-    filterPanel.classList.add("hidden");
-    mainPanel.classList.add("expanded");
-    toggleFilterArrow.classList.remove("bi-caret-left-fill");
-    toggleFilterArrow.classList.add("bi-caret-right-fill");
-  }
+  setFilterVisible(!filterVisible);
 });
 
-// Auto-hide filter panel on mouse leave
-leftHoverZone.addEventListener("mouseenter", function() {
-  if (!filterVisible) {
-    filterVisible = true;
-    filterPanel.classList.remove("hidden");
-    mainPanel.classList.remove("expanded");
-    toggleFilterText.textContent = "Masquer les filtres";
-  }
-});
-
-filterPanel.addEventListener("mouseenter", function() {
-  if (!filterVisible) {
-    filterVisible = true;
-    filterPanel.classList.remove("hidden");
-    mainPanel.classList.remove("expanded");
-    toggleFilterText.textContent = "Masquer les filtres";
-  }
-});
-
-filterPanel.addEventListener("mouseleave", function() {
-  if (filterVisible) {
-    filterVisible = false;
-    filterPanel.classList.add("hidden");
-    mainPanel.classList.add("expanded");
-    toggleFilterText.textContent = "Afficher les filtres";
-  }
-});
+// Ouverture au survol du bord gauche, fermeture quand la souris quitte le panneau
+leftHoverZone.addEventListener("mouseenter", function() { setFilterVisible(true); });
+filterPanel.addEventListener("mouseenter", function() { setFilterVisible(true); });
+filterPanel.addEventListener("mouseleave", function() { setFilterVisible(false); });
 
 /* LOAD DATA */
-Promise.all([
-  fetch(dataUrl1).then(response => response.json()),
-  fetch(dataUrl2).then(response => response.json())
-])
+function fetchJson(url) {
+  return fetch(url).then(function (response) {
+    if (!response.ok) throw new Error("HTTP " + response.status + " sur " + url);
+    return response.json();
+  });
+}
+
+Promise.all([fetchJson(dataUrl1), fetchJson(dataUrl2)])
   .then(function ([data1, data2]) {
     d = data1;
     d2 = data2;
-    console.log("Data 1:", d);
-    console.log("Data 2:", d2);
     filterData();
   })
   .catch(function (err) {
-    console.log("error: " + err);
+    console.error(err);
+    document.getElementById("dataContainer").innerHTML =
+      '<div class="alert alert-danger mt-4" role="alert">' +
+      '<i class="bi bi-exclamation-triangle-fill"></i> ' +
+      'Impossible de charger le programme pour le moment. Réessayez dans quelques minutes.' +
+      '</div>';
   });
 
 /* FUNCTIONS */
@@ -134,148 +123,6 @@ function filterData() {
 
 function displayData() {
   displayList();
-}
-
-function displayGrid() {
-  var mainContainer = document.getElementById("dataContainer");
-  mainContainer.innerHTML = "";
-
-  for (var i = 0; i < filtered_data.length; i++) {
-
-    var article = document.createElement("article");
-    var classString = [
-      filtered_data[i].type.toLowerCase(),
-      filtered_data[i].semestre.toLowerCase(),
-      filtered_data[i].competence.toLowerCase(),
-      "c-pointer"
-    ].join(" ");
-    article.className = "card " + classString;
-    article.setAttribute("onClick", "displayFiche('"+i+"')");
-    article.setAttribute("data-bs-toggle","modal");
-    article.setAttribute("data-bs-target", "#my-modal");
-
-    var article_content = '';
-    article_content += '<div class="card-body">';
-    article_content += '<span class="card-subtiltle text-muted fw-light">'+ filtered_data[i].semestre +'&nbsp;</span>';
-
-    if (filtered_data[i].type.toLowerCase() == "sae") {
-      if(filtered_data[i].libelle.toLowerCase().startsWith("stage")){
-        article_content += '<span class="badge bg-parcours mb-2 float-end">STAGE</span>';
-      }else if(filtered_data[i].libelle.toLowerCase().startsWith("portfolio")){
-        article_content += '<span class="badge bg-parcours mb-2 float-end">PORTFOLIO</span>';
-      }
-      article_content += '<span class="badge bg-dark mb-2 float-end">SAÉ</span>';
-    }
-
-    article_content += '<p class="card-title mt-2">' + filtered_data[i].libelle + "</p>";
-
-    // article_content += "<br/>"
-    article_content += filtered_data[i].comp_1 ? '<span class="ue-outline ue-outline-1">UE 1</span>' : '';
-    article_content += filtered_data[i].comp_2 ? '<span class="ue-outline ue-outline-2">UE 2</span>' : '';
-    article_content += filtered_data[i].comp_3 ? '<span class="ue-outline ue-outline-3">UE 3</span>' : '';
-    article_content += filtered_data[i].comp_4 ? '<span class="ue-outline ue-outline-4">UE 4</span>' : '';
-    article_content += filtered_data[i].comp_5 ? '<span class="ue-outline ue-outline-5">UE 5</span>' : '';
-    article_content += isJouParcours && filtered_data[i].comp_6 ? '<span class="ue-outline ue-outline-6">UE 6</span>' : '';
-
-    if(filtered_data[i].type.toLowerCase() == "ressource"){
-      article_content += '<p class="card-subtitle mb-2 text-muted">'+ filtered_data[i].mots_cles +'</p>';
-    }
-    
-    article_content += "</div></a>";
-
-    article_content +=
-      '<div class="card-footer justify-content-between d-flex"><small class="text-muted"><strong>' +
-      filtered_data[i].h_tot + 'h</strong>';
-      
-      if(filtered_data[i].h_tp>0){
-        article_content += ' | dont '+ filtered_data[i].h_tp +'h TP';
-      }
-      
-      article_content += '</small>';
-
-      if(filtered_data[i].h_proj>0){
-        article_content += '<small class="text-muted">'+ filtered_data[i].h_proj + 'h proj.</small>';
-      }
-      
-      article_content += '</div>';
-
-    article.innerHTML = article_content;
-
-    mainContainer.appendChild(article);
-  }
-  
-  // Display data for table 2
-  for (var i = 0; i < filtered_data2.length; i++) {
-
-    var article = document.createElement("article");
-    var classString = [
-      filtered_data2[i].type.toLowerCase(),
-      filtered_data2[i].semestre.toLowerCase(),
-      filtered_data2[i].competence.toLowerCase(),
-      "c-pointer"
-    ].join(" ");
-    article.className = "card " + classString;
-    article.setAttribute("onClick", "displayFiche2('"+i+"')");
-    article.setAttribute("data-bs-toggle","modal");
-    article.setAttribute("data-bs-target", "#my-modal");
-
-    var article_content = '';
-    article_content += '<div class="card-body">';
-    article_content += '<span class="card-subtiltle text-muted fw-light">'+ filtered_data2[i].semestre +'&nbsp;</span>';
-
-    if (filtered_data2[i].type.toLowerCase() == "sae") {
-      if(filtered_data2[i].libelle.toLowerCase().startsWith("stage")){
-        article_content += '<span class="badge bg-parcours mb-2 float-end">STAGE</span>';
-        article_content += '<span class="badge bg-dark mb-2 float-end">SAÉ</span>';
-      } else if(filtered_data2[i].libelle.toLowerCase().startsWith("portfolio")){
-        article_content += '<span class="badge bg-parcours pae-badge mb-2 float-end">PAÉ</span>';
-      } else {
-        article_content += '<span class="badge bg-dark mb-2 float-end">SAÉ</span>';
-      }
-    }
-
-    article_content += '<p class="card-title mt-2">' + filtered_data2[i].libelle + "</p>";
-
-    article_content += filtered_data2[i].comp_1 ? '<span class="ue-outline ue-outline-1">UE 1</span>' : '';
-    article_content += filtered_data2[i].comp_2 ? '<span class="ue-outline ue-outline-2">UE 2</span>' : '';
-    article_content += filtered_data2[i].comp_3 ? '<span class="ue-outline ue-outline-3">UE 3</span>' : '';
-    article_content += filtered_data2[i].comp_4 ? '<span class="ue-outline ue-outline-4">UE 4</span>' : '';
-    article_content += filtered_data2[i].comp_5 ? '<span class="ue-outline ue-outline-5">UE 5</span>' : '';
-    article_content += isJouParcours && filtered_data2[i].comp_6 ? '<span class="ue-outline ue-outline-6">UE 6</span>' : '';
-
-    if(filtered_data2[i].type.toLowerCase() == "ressource"){
-      article_content += '<p class="card-subtitle mb-2 text-muted">'+ filtered_data2[i].mots_cles +'</p>';
-    }
-    
-    article_content += "</div></a>";
-
-    article_content +=
-      '<div class="card-footer justify-content-between d-flex"><small class="text-muted"><strong>' +
-      filtered_data2[i].h_tot + 'h</strong>';
-      
-      if(filtered_data2[i].h_tp>0){
-        article_content += ' | dont '+ filtered_data2[i].h_tp +'h TP';
-      }
-      
-      article_content += '</small>';
-
-      if(filtered_data2[i].h_proj>0){
-        article_content += '<small class="text-muted">'+ filtered_data2[i].h_proj + 'h proj.</small>';
-      }
-      
-      article_content += '</div>';
-
-    article.innerHTML = article_content;
-
-    mainContainer.appendChild(article);
-  }
-  
-  /* to fix last grid article stretch problem */
-  for(var i=0; i<3;i++){
-    var spacer = document.createElement("div");
-    mainContainer.appendChild(spacer);
-  }
-
 }
 
 function displayList() {
@@ -339,6 +186,14 @@ function displayList() {
     }
     tr.setAttribute("data-bs-toggle","modal");
     tr.setAttribute("data-bs-target", "#my-modal");
+    tr.setAttribute("tabindex", "0");
+    tr.setAttribute("role", "button");
+    tr.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        tr.click();
+      }
+    });
     
     tr.className = classString.join(" ");
 
@@ -493,7 +348,7 @@ function displayFicheCommon(index, dataSource, isNewProgram){
   if(dataSource[index].h_proj>0){
     h_string += "<br/>"+ dataSource[index].h_proj+"h. projet";
   }
-  h_string += "<small>";
+  h_string += "</small>";
 
   /* remplissage modal */
   modalTitle.innerHTML = "<span class='text-muted fw-light'>"+dataSource[index].semestre +" | </span>"+ dataSource[index].libelle+ "<div class='text-muted fw-light small'>"+ue_content+"</div>";
@@ -506,7 +361,7 @@ function displayFicheCommon(index, dataSource, isNewProgram){
   }
   
   modalBody_content += '<h5>Description</h5>';
-  modalBody_content += '<p>'+converter.makeHtml(desc_complete)+'</p>';
+  modalBody_content += '<div>'+converter.makeHtml(desc_complete)+'</div>';
   if(dataSource[index].mots_cles){
     modalBody_content += '<hr>';
     modalBody_content += '<h5>Mots-clés</h5>';
@@ -584,7 +439,6 @@ checkboxes.forEach(function (checkbox) {
 });
 
 /****** VIEW MODE SWITCH ******/
-var viewMode = "2020"; // "2020", "both", "2027"
 
 document.querySelectorAll('input[name="view-mode"]').forEach(function(radio) {
   radio.addEventListener("change", function() {
